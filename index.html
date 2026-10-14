@@ -598,7 +598,6 @@
     .badge-ejpph { background: #d1fae5; color: #065f46; }
     .badge-tng { background: #dbeafe; color: #003b73; }
     .badge-pos { background: #fee2e2; color: #991b1b; }
-    .badge-pbtpay { background: #ffedd5; color: #c2410c; }
 
     .cloud-message {
       font-family: 'Space Grotesk', sans-serif;
@@ -667,10 +666,6 @@
       background: #ed1c24;
     }
 
-    .step-num-pbtpay {
-      background: #ea580c;
-    }
-
     .cloud-actions {
       display: flex;
       flex-direction: column;
@@ -718,9 +713,6 @@
     }
     .btn-cloud-proceed-pos {
       background: linear-gradient(135deg, #ed1c24, #b30c12);
-    }
-    .btn-cloud-proceed-pbtpay {
-      background: linear-gradient(135deg, #ea580c, #c2410c);
     }
 
     .btn-cloud-subtle {
@@ -906,12 +898,12 @@
           </button>
 
           <!-- 6. PBTPay -->
-          <button type="button" id="btn-pbtpay-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="PBTPay Online">
+          <a href="https://pbtpay.kpkt.gov.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="PBTPay">
             <div class="btn-circle btn-pbtpay">
               <i class="fa-solid fa-receipt"></i>
             </div>
             <span class="link-label">PBTPay</span>
-          </button>
+          </a>
 
         </nav>
 
@@ -1116,48 +1108,6 @@
     </div>
   </div>
 
-  <!-- Modal PBTPay -->
-  <div id="cloudModalPBTPay" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePBTPay">
-    <div class="comic-cloud">
-      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
-      <div class="cloud-bump-left" aria-hidden="true"></div>
-      <div class="cloud-bump-right" aria-hidden="true"></div>
-
-      <div class="cloud-content">
-        <span class="cloud-badge badge-pbtpay">
-          <i class="fa-solid fa-receipt"></i> Portal Rasmi PBTPay
-        </span>
-        
-        <p id="cloudTitlePBTPay" class="cloud-message" style="margin-bottom: 8px;">
-          Panduan Bayaran Cukai Taksiran di <mark>PBTPay</mark>:
-        </p>
-
-        <ol class="flow-steps-list">
-          <li class="flow-step-item">
-            <span class="step-num step-num-pbtpay">1</span>
-            <span><strong>Pilih PBT:</strong> Pilih <mark>Wilayah Persekutuan</mark> &gt; <strong>Dewan Bandaraya Kuala Lumpur (DBKL)</strong>.</span>
-          </li>
-          <li class="flow-step-item">
-            <span class="step-num step-num-pbtpay">2</span>
-            <span><strong>Cari bil:</strong> Masukkan <mark>Nombor Akaun Taksiran</mark> atau <mark>No. Kad Pengenalan</mark>.</span>
-          </li>
-          <li class="flow-step-item">
-            <span class="step-num step-num-pbtpay">3</span>
-            <span><strong>Semak &amp; bayar:</strong> Sahkan amaun tunggakan, pilih <mark>kaedah bayaran</mark> dan selesaikan transaksi.</span>
-          </li>
-        </ol>
-
-        <div class="cloud-actions">
-          <a href="https://pbtpay.kpkt.gov.my/" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-pbtpay dismiss-on-click">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <span>Teruskan ke Portal PBTPay</span>
-          </a>
-          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Script Interaktiviti & Pengendali Modal -->
   <script>
     function handleImageFallback(img) {
@@ -1176,8 +1126,7 @@
         'btn-paykl-trigger': 'cloudModalPayKL',
         'btn-ejpph-trigger': 'cloudModalEJPPH',
         'btn-tng-trigger': 'cloudModalTNG',
-        'btn-pos-trigger': 'cloudModalPos',
-        'btn-pbtpay-trigger': 'cloudModalPBTPay'
+        'btn-pos-trigger': 'cloudModalPos'
       };
 
       const allModals = Object.values(modalMapping).map(id => document.getElementById(id)).filter(Boolean);
