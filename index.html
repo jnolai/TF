@@ -496,6 +496,7 @@
       transition: all 0.2s ease;
     }
 
+    /* Gaya Butang Tindakan */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -523,13 +524,15 @@
       color: #ffd166;
     }
 
-    .btn-grab {
-      background: linear-gradient(135deg, #00b14f 0%, #006837 100%);
+    /* Pos Malaysia: Warna Korporat Merah Terang & Biru Gelap Pos */
+    .btn-pos {
+      background: linear-gradient(135deg, #ed1c24 0%, #b30c12 55%, #002d62 100%);
       border-color: #ffffff;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(0, 177, 79, 0.35);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(237, 28, 36, 0.4);
     }
-    .btn-grab i {
+    .btn-pos i {
       color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
     }
 
     .btn-pbtpay {
@@ -581,7 +584,7 @@
     }
 
     /* ========================================================
-       MODAL DIALOG POPUP
+       MODAL DIALOG POPUP AWAN
        ======================================================== */
     .cloud-modal-overlay {
       display: none !important;
@@ -670,6 +673,7 @@
     .badge-paykl { background: #fbcfe8; color: #831843; }
     .badge-ejpph { background: #d1fae5; color: #065f46; }
     .badge-tng { background: #dbeafe; color: #003b73; }
+    .badge-pos { background: #fee2e2; color: #991b1b; }
 
     .cloud-message {
       font-family: 'Space Grotesk', sans-serif;
@@ -687,8 +691,8 @@
       border-radius: 4px;
     }
 
-    /* Senarai Langkah TNG */
-    .tng-steps-list {
+    /* Senarai Langkah Panduan Modal */
+    .flow-steps-list {
       list-style: none;
       padding: 0;
       margin: 0 0 14px 0;
@@ -698,7 +702,7 @@
       text-align: left;
     }
 
-    .tng-step-item {
+    .flow-step-item {
       display: flex;
       align-items: flex-start;
       gap: 8px;
@@ -706,13 +710,13 @@
       border: 2px solid var(--border-dark);
       border-radius: 10px;
       padding: 6px 9px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: #1e293b;
       line-height: 1.35;
     }
 
-    .tng-step-item mark {
+    .flow-step-item mark {
       background-color: #fef08a;
       color: #003b73;
       padding: 0 3px;
@@ -732,6 +736,10 @@
       font-weight: 900;
       flex-shrink: 0;
       margin-top: 1px;
+    }
+
+    .step-num-pos {
+      background: #ed1c24;
     }
 
     .cloud-actions {
@@ -778,6 +786,9 @@
     }
     .btn-cloud-proceed-tng {
       background: linear-gradient(135deg, #005aa9, #002244);
+    }
+    .btn-cloud-proceed-pos {
+      background: linear-gradient(135deg, #ed1c24, #b30c12);
     }
 
     .btn-cloud-subtle {
@@ -922,7 +933,7 @@
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: FOOTER & BUTANG TINDAKAN -->
+    <!-- 3. BAHAGIAN BAWAH: FOOTER & 6 BUTANG TINDAKAN -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         
@@ -954,7 +965,7 @@
             <span class="link-label">eJPPH</span>
           </button>
 
-          <!-- 4. TNG (Membuka Pop Up Awan) -->
+          <!-- 4. TNG (Membuka Pop Up Awan TNG) -->
           <button type="button" id="btn-tng-trigger" class="link-item" aria-haspopup="dialog" aria-label="Touch 'n Go eWallet">
             <div class="btn-circle btn-tng">
               <i class="fa-solid fa-wallet"></i>
@@ -962,13 +973,13 @@
             <span class="link-label">TNG</span>
           </button>
 
-          <!-- 5. Grab -->
-          <a href="https://www.grab.com/my/pay/" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="GrabPay">
-            <div class="btn-circle btn-grab">
-              <i class="fa-solid fa-money-bill-wave"></i>
+          <!-- 5. Pos Malaysia (Membuka Pop Up Awan Pos Online) -->
+          <button type="button" id="btn-pos-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pos Malaysia Online">
+            <div class="btn-circle btn-pos">
+              <i class="fa-solid fa-envelope-open-text"></i>
             </div>
-            <span class="link-label">Grab</span>
-          </a>
+            <span class="link-label">Pos Online</span>
+          </button>
 
           <!-- 6. PBTPay -->
           <a href="https://pbtpay.kpkt.gov.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="PBTPay">
@@ -1083,7 +1094,7 @@
     </div>
   </div>
 
-  <!-- Modal TNG Baharu -->
+  <!-- Modal TNG -->
   <div id="cloudModalTNG" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleTNG">
     <div class="comic-cloud">
       <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
@@ -1099,16 +1110,16 @@
           Panduan Bayaran Cukai Taksiran di <mark>TNG eWallet</mark>:
         </p>
 
-        <ol class="tng-steps-list">
-          <li class="tng-step-item">
+        <ol class="flow-steps-list">
+          <li class="flow-step-item">
             <span class="step-num">1</span>
             <span>Tekan <mark>“Bil”</mark> &rarr; buat carian masukkan <strong>DBKL</strong></span>
           </li>
-          <li class="tng-step-item">
+          <li class="flow-step-item">
             <span class="step-num">2</span>
             <span>Pilih perkhidmatan <strong>DBKL (Taksiran)</strong> &rarr; masukkan nombor Akaun &rarr; Tekan <mark>“Seterusnya”</mark></span>
           </li>
-          <li class="tng-step-item">
+          <li class="flow-step-item">
             <span class="step-num">3</span>
             <span>Sahkan jumlah bayaran &rarr; Tekan <mark>“Bayar”</mark> &mdash; selesai!</span>
           </li>
@@ -1118,6 +1129,56 @@
           <a href="https://www.tngdigital.com.my/promotions/pay-dbkl-bills-in-tng-ewallet-now/" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-tng dismiss-on-click">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span>Info Lanjut di TNG Digital</span>
+          </a>
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pos Malaysia Baharu -->
+  <div id="cloudModalPos" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePos">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge badge-pos">
+          <i class="fa-solid fa-envelopes-bulk"></i> Pos Malaysia Online
+        </span>
+        
+        <p id="cloudTitlePos" class="cloud-message" style="margin-bottom: 8px;">
+          Panduan Bayaran Cukai Taksiran di <mark>Pos Online</mark>:
+        </p>
+
+        <ol class="flow-steps-list">
+          <li class="flow-step-item">
+            <span class="step-num step-num-pos">1</span>
+            <span>Klik pada <mark>Local Authority</mark></span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pos">2</span>
+            <span>Pilih <strong>Dewan Bandaraya Kuala Lumpur (DBKL)</strong></span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pos">3</span>
+            <span>Buat <mark>Login</mark> akaun anda</span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pos">4</span>
+            <span>Ikut arahan yang dinyatakan pada skrin</span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pos">5</span>
+            <span>Tekan <mark>Bayar</mark> dan selesai!</span>
+          </li>
+        </ol>
+
+        <div class="cloud-actions">
+          <a href="https://www.posonline.com.my/PosOnline.Web.Portal/PaymentStatic/NewList/9" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-pos dismiss-on-click">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Teruskan ke Pos Online</span>
           </a>
           <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
         </div>
@@ -1181,13 +1242,15 @@
       const payklTrigger = document.getElementById('btn-paykl-trigger');
       const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
       const tngTrigger = document.getElementById('btn-tng-trigger');
+      const posTrigger = document.getElementById('btn-pos-trigger');
       
       const modalDBKL = document.getElementById('cloudModalDBKL');
       const modalPayKL = document.getElementById('cloudModalPayKL');
       const modalEJPPH = document.getElementById('cloudModalEJPPH');
       const modalTNG = document.getElementById('cloudModalTNG');
+      const modalPos = document.getElementById('cloudModalPos');
       
-      const allModals = [modalDBKL, modalPayKL, modalEJPPH, modalTNG];
+      const allModals = [modalDBKL, modalPayKL, modalEJPPH, modalTNG, modalPos];
 
       function openModal(modal) {
         closeAllModals();
@@ -1229,6 +1292,13 @@
         tngTrigger.addEventListener('click', function(e) {
           e.preventDefault();
           openModal(modalTNG);
+        });
+      }
+
+      if (posTrigger) {
+        posTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modalPos);
         });
       }
 
