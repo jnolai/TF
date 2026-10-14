@@ -38,7 +38,7 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow-x: hidden;
+      overflow: hidden; /* Mengunci paparan 1 viewport tepat tanpa ruang mati */
     }
 
     body {
@@ -48,11 +48,11 @@
       position: relative;
     }
 
-    /* Container Viewport Penuh */
+    /* Container Viewport Penuh Terkunci (100dvh) */
     .app-viewport {
       width: 100vw;
-      min-height: 100vh;
-      min-height: 100dvh;
+      height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -64,10 +64,10 @@
     /* Hiasan Memphis Geometrik */
     .memphis-dots-left {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      width: 54px;
-      height: 54px;
+      top: 12px;
+      left: 12px;
+      width: 50px;
+      height: 50px;
       background-image: radial-gradient(rgba(255, 255, 255, 0.95) 28%, transparent 28%);
       background-size: 11px 11px;
       pointer-events: none;
@@ -76,10 +76,10 @@
 
     .memphis-dots-right {
       position: absolute;
-      top: 18%;
+      top: 14%;
       right: 14px;
-      width: 44px;
-      height: 75px;
+      width: 40px;
+      height: 70px;
       background-image: radial-gradient(rgba(111, 38, 71, 0.35) 25%, transparent 25%);
       background-size: 10px 10px;
       pointer-events: none;
@@ -88,30 +88,30 @@
 
     .memphis-chevrons {
       position: absolute;
-      right: 16px;
-      top: 86px;
+      right: 14px;
+      top: 80px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       pointer-events: none;
       z-index: 2;
     }
 
     .chevron {
-      width: 18px;
-      height: 18px;
-      border-right: 4px solid var(--burgundy);
-      border-bottom: 4px solid var(--burgundy);
+      width: 16px;
+      height: 16px;
+      border-right: 3.5px solid var(--burgundy);
+      border-bottom: 3.5px solid var(--burgundy);
       transform: rotate(45deg);
       border-radius: 1px;
     }
 
-    /* 1. BAHAGIAN ATAS (HEADER BANNER) */
+    /* 1. BAHAGIAN ATAS: HEADER BANNER PADAT */
     .header-section {
       width: 100%;
-      padding: clamp(10px, 1.8vh, 18px) 16px 0;
+      padding: clamp(8px, 1.4vh, 14px) 14px 0;
       position: relative;
-      z-index: 5;
+      z-index: 6;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -122,35 +122,35 @@
       background-color: var(--burgundy);
       color: var(--white);
       border: var(--border-thick);
-      border-radius: 14px;
-      padding: clamp(8px, 1.4vh, 14px) clamp(16px, 4vw, 36px);
+      border-radius: 12px;
+      padding: clamp(7px, 1.2vh, 12px) clamp(14px, 3.5vw, 30px);
       box-shadow: 4px 4px 0px var(--border-dark);
       position: relative;
       transform: rotate(-0.5deg);
       text-align: center;
-      width: min(94%, 620px);
+      width: min(94%, 600px);
     }
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.95rem, 4vw, 1.35rem);
+      font-size: clamp(0.92rem, 3.8vw, 1.3rem);
       font-weight: 900;
       letter-spacing: 0.6px;
       text-transform: uppercase;
-      line-height: 1.25;
+      line-height: 1.2;
       text-shadow: 2px 2px 0px var(--burgundy-deep);
     }
 
     .cross-marks {
       position: absolute;
-      right: -10px;
+      right: -8px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       color: var(--accent-teal);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
       text-shadow: 1.5px 1.5px 0 var(--border-dark);
     }
@@ -158,41 +158,42 @@
     .film-strip {
       display: flex;
       justify-content: center;
-      gap: 6px;
-      margin-top: 5px;
+      gap: 5px;
+      margin-top: 4px;
     }
 
     .strip-notch {
-      width: 14px;
-      height: 7px;
+      width: 12px;
+      height: 6px;
       background: var(--burgundy);
       border: 1.5px solid var(--border-dark);
       border-top: none;
       border-radius: 0 0 2px 2px;
     }
 
-    /* 2. BAHAGIAN TENGAH: SUSUNAN MODEL KIRI PENUH & TEKS KANAN */
+    /* 2. BAHAGIAN TENGAH: MEMENUHI KETINGGIAN PENUH (ELIMINASI RUANG KOSONG) */
     .middle-split-section {
       position: relative;
       flex: 1 1 0;
+      min-height: 0; /* Penting untuk mengelakkan overflow pada skrin tinggi */
       display: flex;
-      align-items: stretch;
+      align-items: flex-end;
       justify-content: space-between;
       width: 100%;
       max-width: 960px;
       margin: 0 auto;
-      padding: 0;
+      padding: 0 10px 0 0;
       z-index: 3;
       overflow: visible;
-      min-height: 0;
     }
 
-    /* Kolum Kiri: Model Memenuhi Ketinggian Penuh (Full Fill Height) */
+    /* Kolum Kiri: Memenuhi Ketinggian Penuh dari Dasar hingga ke Paras Banner */
     .model-column-left {
       position: relative;
-      flex: 1.25;
-      width: 55%;
+      flex: 1.3;
+      width: 56%;
       height: 100%;
+      min-height: 0;
       display: flex;
       justify-content: flex-start;
       align-items: flex-end;
@@ -200,21 +201,21 @@
       overflow: visible;
     }
 
-    /* Bulatan Sunburst Latar Belakang Model */
+    /* Bulatan Sunburst Lebih Besar di Belakang Kepala & Badan */
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(260px, 55vw, 460px);
-      height: clamp(260px, 55vw, 460px);
+      width: clamp(280px, 78vw, 480px);
+      height: clamp(280px, 78vw, 480px);
       background: radial-gradient(circle, #ffe699 0%, #f59e0b 80%);
       border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
       bottom: 0px;
-      left: clamp(-30px, -2vw, -10px);
+      left: clamp(-45px, -6vw, -15px);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* Imej Model Wanita: Skala Besar, Mengisi Penuh dari Atas ke Garisan Footer */
+    /* Pembungkus Imej Model */
     .model-wrapper {
       position: relative;
       width: 100%;
@@ -225,6 +226,7 @@
       z-index: 3;
     }
 
+    /* Imej Model: Diperbesarkan, Tegak Menolak ke Atas Menghapuskan Ruang Kosong */
     .model-cutout-img {
       position: absolute;
       bottom: 0;
@@ -238,12 +240,12 @@
       filter: contrast(1.12) brightness(1.02) saturate(1.05);
       pointer-events: none;
       transform-origin: bottom left;
-      /* Skala sedikit lebih besar untuk menghilangkan ruang kosong */
-      transform: scale(1.08);
-      margin-left: -5px;
+      /* Membesarkan skala agar kepala sampai ke paras atas */
+      transform: scale(1.18);
+      margin-left: -4px;
     }
 
-    /* Ilustrasi Vektor SVG (Sebagai Fallback jika AC.png tiada) */
+    /* Vektor SVG Fallback jika fail imej tiada */
     .model-svg-fallback {
       position: absolute;
       bottom: 0;
@@ -254,27 +256,29 @@
       z-index: 3;
       object-fit: contain;
       object-position: bottom left;
-      display: none; /* Muncul automatik jika fail imej gagal */
+      display: none;
       pointer-events: none;
+      transform: scale(1.1);
+      transform-origin: bottom left;
     }
 
-    /* Kolum Kanan: Mengandungi Maklumat, Teks & Buih Percakapan */
+    /* Kolum Kanan: Teks & Buih Percakapan */
     .text-column-right {
       position: relative;
-      flex: 1;
-      width: 45%;
+      flex: 1.05;
+      width: 44%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-start;
-      padding: clamp(10px, 2vh, 20px) 16px clamp(18px, 3.5vh, 28px) 8px;
+      padding: 0 8px clamp(12px, 2.5vh, 22px) 4px;
       z-index: 5;
-      gap: clamp(8px, 1.8vh, 16px);
-      max-width: 460px;
+      gap: clamp(6px, 1.4vh, 14px);
+      max-width: 440px;
     }
 
-    /* Buih Percakapan Memphis Retro */
+    /* Buih Percakapan Retro */
     .speech-bubble {
       position: relative;
       align-self: flex-start;
@@ -282,25 +286,25 @@
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: clamp(6px, 1.2vh, 10px) clamp(12px, 2.5vw, 18px);
-      font-size: clamp(0.74rem, 2.2vw, 0.9rem);
+      padding: clamp(5px, 1vh, 8px) clamp(10px, 2.2vw, 16px);
+      font-size: clamp(0.72rem, 2.1vw, 0.88rem);
       font-weight: 900;
       text-align: center;
-      box-shadow: 4px 4px 0 var(--border-dark);
-      line-height: 1.2;
+      box-shadow: 3.5px 3.5px 0 var(--border-dark);
+      line-height: 1.15;
       transform: rotate(-3deg);
       animation: bubbleFloat 3s infinite ease-in-out;
-      margin-bottom: clamp(6px, 1vh, 12px);
+      margin-bottom: clamp(4px, 0.8vh, 8px);
       white-space: nowrap;
     }
 
     .speech-bubble::after {
       content: '';
       position: absolute;
-      bottom: -8px;
-      left: 20px;
-      width: 12px;
-      height: 12px;
+      bottom: -7px;
+      left: 18px;
+      width: 10px;
+      height: 10px;
       background-color: var(--accent-teal);
       border: 2px solid var(--border-dark);
       border-radius: 50%;
@@ -314,25 +318,25 @@
     .badge-kualalumpur {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: #ffffff;
       color: var(--burgundy-deep);
-      border: 3px solid var(--border-dark);
+      border: 2.5px solid var(--border-dark);
       border-radius: 30px;
-      padding: 5px 12px;
-      font-size: clamp(0.72rem, 2.2vw, 0.88rem);
+      padding: 4px 10px;
+      font-size: clamp(0.68rem, 2vw, 0.82rem);
       font-weight: 900;
-      letter-spacing: 0.5px;
-      box-shadow: 3px 3px 0 var(--border-dark);
+      letter-spacing: 0.4px;
+      box-shadow: 2.5px 2.5px 0 var(--border-dark);
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .sub-bio {
-      font-size: clamp(0.88rem, 2.8vw, 1.25rem);
+      font-size: clamp(0.84rem, 2.7vw, 1.18rem);
       font-weight: 800;
       color: var(--burgundy-deep);
-      line-height: 1.35;
+      line-height: 1.32;
       text-align: left;
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
@@ -340,29 +344,29 @@
     .sub-bio mark {
       background: #ffffff;
       color: var(--burgundy-deep);
-      border: 2px solid var(--border-dark);
-      padding: 1px 6px;
-      border-radius: 6px;
+      border: 1.5px solid var(--border-dark);
+      padding: 1px 5px;
+      border-radius: 5px;
       font-weight: 900;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+      box-shadow: 1.5px 1.5px 0 rgba(0,0,0,0.15);
       display: inline-block;
       white-space: nowrap;
     }
 
     .geo-zigzag {
       margin-top: 2px;
-      width: clamp(45px, 8vw, 60px);
+      width: clamp(40px, 7vw, 55px);
       height: auto;
     }
 
-    /* 3. BAHAGIAN BAWAH (PANEL FOOTER TETAP) */
+    /* 3. BAHAGIAN BAWAH: PANEL FOOTER TETAP (DOCK) */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
-      border-radius: 24px 24px 0 0;
-      padding: clamp(10px, 1.8vh, 16px) clamp(16px, 4vw, 36px) clamp(10px, 1.8vh, 16px);
+      border-radius: 22px 22px 0 0;
+      padding: clamp(9px, 1.5vh, 14px) clamp(14px, 3.5vw, 32px) clamp(8px, 1.4vh, 14px);
       position: relative;
       z-index: 6;
       box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
@@ -379,8 +383,8 @@
       position: absolute;
       right: 0px;
       top: -4px;
-      width: 32px;
-      height: 38px;
+      width: 30px;
+      height: 35px;
       background-image: radial-gradient(rgba(255, 255, 255, 0.85) 25%, transparent 25%);
       background-size: 8px 8px;
       opacity: 0.75;
@@ -390,23 +394,23 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.85rem, 2.6vw, 1.05rem);
+      font-size: clamp(0.82rem, 2.5vw, 1rem);
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(6px, 1.2vh, 12px);
+      margin-bottom: clamp(6px, 1vh, 10px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
     }
 
     .section-title::before,
     .section-title::after {
       content: "•••";
-      font-size: 11px;
+      font-size: 10px;
       color: var(--retro-yellow);
       letter-spacing: 2px;
     }
@@ -415,8 +419,8 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(6px, 1.4vh, 14px);
-      gap: 12px;
+      margin-bottom: clamp(6px, 1.2vh, 12px);
+      gap: 10px;
       width: 100%;
     }
 
@@ -426,7 +430,7 @@
       align-items: center;
       text-decoration: none;
       color: var(--white);
-      gap: 6px;
+      gap: 5px;
       background: none;
       border: none;
       cursor: pointer;
@@ -435,20 +439,20 @@
     }
 
     .link-item:hover, .link-item:active {
-      transform: translateY(-4px) scale(1.05);
+      transform: translateY(-3px) scale(1.05);
     }
 
     .btn-circle {
-      width: clamp(48px, 11vw, 64px);
-      height: clamp(48px, 11vw, 64px);
+      width: clamp(46px, 10.5vw, 60px);
+      height: clamp(46px, 10.5vw, 60px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(18px, 4.2vw, 24px);
+      font-size: clamp(17px, 4vw, 22px);
       color: var(--white);
-      box-shadow: 4px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
     }
 
@@ -463,7 +467,7 @@
     .btn-ejpph {
       background: linear-gradient(145deg, #1f242d 0%, #0c0e12 100%);
       border-color: #ffffff;
-      box-shadow: 4px 4px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
     }
     .btn-ejpph i {
       color: #38ef7d;
@@ -471,9 +475,9 @@
     }
 
     .link-label {
-      font-size: clamp(0.68rem, 2vw, 0.82rem);
+      font-size: clamp(0.66rem, 1.9vw, 0.8rem);
       font-weight: 800;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
     }
 
@@ -481,27 +485,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 7px;
       width: 100%;
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
-      border-radius: 10px;
+      border-radius: 9px;
       text-align: center;
-      padding: clamp(7px, 1.2vh, 11px) 16px;
+      padding: clamp(6px, 1vh, 10px) 14px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.74rem, 2.2vw, 0.88rem);
-      letter-spacing: 0.4px;
+      font-size: clamp(0.72rem, 2.1vw, 0.86rem);
+      letter-spacing: 0.3px;
       text-decoration: none;
-      box-shadow: 4px 4px 0 var(--border-dark);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark);
       transition: all 0.18s ease;
     }
 
     .portal-banner-link:hover {
       background-color: #38bdf8;
       transform: translate(-1px, -2px);
-      box-shadow: 5px 5px 0 var(--border-dark);
+      box-shadow: 4.5px 4.5px 0 var(--border-dark);
     }
 
     .portal-banner-link:active {
@@ -509,287 +513,21 @@
       box-shadow: 2px 2px 0 var(--border-dark);
     }
 
-    /* 4. MODAL POP-UP (AWAN KOMIK RETRO) */
-    .cloud-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(30, 8, 17, 0.78);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 18px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease-out;
-    }
-
-    .cloud-modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .comic-cloud {
-      position: relative;
-      background: #ffffff;
-      border: var(--border-thick);
-      border-radius: 40px;
-      padding: 24px 22px 20px;
-      width: 92%;
-      max-width: 360px;
-      text-align: center;
-      box-shadow: 8px 8px 0px var(--border-dark);
-      transform: scale(0.75) translateY(20px);
-      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .cloud-modal-overlay.active .comic-cloud {
-      transform: scale(1) translateY(0);
-    }
-
-    .comic-cloud::before {
-      content: '';
-      position: absolute;
-      top: -24px;
-      left: 42px;
-      width: 76px;
-      height: 48px;
-      background: #ffffff;
-      border-top: var(--border-thick);
-      border-radius: 50% 50% 0 0;
-      z-index: 1;
-    }
-
-    .comic-cloud::after {
-      content: '';
-      position: absolute;
-      top: -34px;
-      right: 48px;
-      width: 98px;
-      height: 60px;
-      background: #ffffff;
-      border-top: var(--border-thick);
-      border-radius: 50% 50% 0 0;
-      z-index: 1;
-    }
-
-    .cloud-bump-left {
-      position: absolute;
-      left: -20px;
-      top: 36px;
-      width: 44px;
-      height: 66px;
-      background: #ffffff;
-      border-left: var(--border-thick);
-      border-radius: 50% 0 0 50%;
-      z-index: 1;
-    }
-
-    .cloud-bump-right {
-      position: absolute;
-      right: -20px;
-      top: 42px;
-      width: 44px;
-      height: 66px;
-      background: #ffffff;
-      border-right: var(--border-thick);
-      border-radius: 0 50% 50% 0;
-      z-index: 1;
-    }
-
-    .cloud-thought-puff-1 {
-      position: absolute;
-      bottom: -18px;
-      left: 70px;
-      width: 20px;
-      height: 20px;
-      background: #ffffff;
-      border: var(--border-thick);
-      border-radius: 50%;
-      box-shadow: 2.5px 2.5px 0 var(--border-dark);
-    }
-
-    .cloud-thought-puff-2 {
-      position: absolute;
-      bottom: -32px;
-      left: 55px;
-      width: 12px;
-      height: 12px;
-      background: #ffffff;
-      border: 2.5px solid var(--border-dark);
-      border-radius: 50%;
-      box-shadow: 1.5px 1.5px 0 var(--border-dark);
-    }
-
-    .cloud-paykl .cloud-thought-puff-1 { left: 165px; }
-    .cloud-paykl .cloud-thought-puff-2 { left: 160px; }
-    .cloud-ejpph .cloud-thought-puff-1 { left: 245px; }
-    .cloud-ejpph .cloud-thought-puff-2 { left: 255px; }
-
-    .cloud-content {
-      position: relative;
-      z-index: 5;
-    }
-
-    .cloud-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #ffe066;
-      border: 2px solid var(--border-dark);
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: #501b33;
-      margin-bottom: 9px;
-    }
-
-    .badge-paykl { background: #fbcfe8; color: #831843; }
-    .badge-ejpph { background: #d1fae5; color: #065f46; }
-
-    .cloud-message {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 800;
-      line-height: 1.35;
-      color: #1a1a1a;
-      margin-bottom: 14px;
-    }
-
-    .cloud-message mark {
-      background-color: #fde047;
-      color: #701a39;
-      padding: 0 4px;
-      border-radius: 4px;
-    }
-
-    .cloud-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .cloud-button-group-duo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
-
-    .btn-cloud-proceed {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: #2563eb;
-      color: #ffffff;
-      border: var(--border-thick);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.78rem;
-      text-decoration: none;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark);
-      transition: all 0.15s ease;
-      cursor: pointer;
-    }
-
-    .btn-cloud-proceed:hover {
-      background: #1d4ed8;
-      transform: translate(-1px, -1px);
-      box-shadow: 4.5px 4.5px 0 var(--border-dark);
-    }
-
-    .btn-cloud-proceed-magenta {
-      background: linear-gradient(135deg, #e11d48, #be185d);
-    }
-    .btn-cloud-proceed-magenta:hover {
-      background: linear-gradient(135deg, #be123c, #9d174d);
-    }
-
-    .btn-cloud-proceed-emerald {
-      background: linear-gradient(135deg, #059669, #047857);
-    }
-    .btn-cloud-proceed-emerald:hover {
-      background: linear-gradient(135deg, #047857, #065f46);
-    }
-
-    .btn-cloud-subtle {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 2px solid var(--border-dark);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.72rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      box-shadow: 2px 2px 0 var(--border-dark);
-      transition: all 0.15s ease;
-    }
-    .btn-cloud-subtle:hover {
-      background: #e2e8f0;
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0 var(--border-dark);
-    }
-
-    .btn-cloud-close {
-      background: transparent;
-      border: none;
-      color: #64748b;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 4px;
-      text-decoration: underline;
-    }
-    .btn-cloud-close:hover { color: #0f172a; }
-
-    .cloud-close-corner {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 32px;
-      height: 32px;
-      background: #ef4444;
-      color: #ffffff;
-      border: var(--border-thick);
-      border-radius: 50%;
-      font-weight: 900;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 2px 2px 0 var(--border-dark);
-      z-index: 10;
-      transition: transform 0.15s ease;
-    }
-    .cloud-close-corner:hover { transform: scale(1.1); }
-
-    /* Penyesuaian Skrin Sederhana & Lebar (Tablet/Desktop) */
+    /* Penyesuaian Skrin Sederhana & Komputer (Tablet / Desktop) */
     @media (min-width: 768px) {
       .middle-split-section {
-        padding: 0 24px;
+        padding: 0 20px;
       }
       .model-column-left {
-        width: 50%;
+        width: 48%;
       }
       .text-column-right {
-        width: 50%;
+        width: 52%;
         max-width: 460px;
-        gap: 18px;
+        gap: 16px;
       }
       .model-cutout-img {
-        transform: scale(1.04);
+        transform: scale(1.08);
       }
     }
   </style>
