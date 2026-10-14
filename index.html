@@ -38,17 +38,17 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden; /* Mengunci paparan 1 viewport tepat tanpa ruang mati */
+      overflow-x: hidden;
+      background-color: var(--bg-yellow);
     }
 
     body {
-      background: linear-gradient(180deg, #fbb839 0%, var(--bg-yellow) 40%, var(--bg-yellow-dark) 100%);
+      background: linear-gradient(180deg, #fbb839 0%, var(--bg-yellow) 45%, var(--bg-yellow-dark) 100%);
       font-family: 'Space Grotesk', sans-serif;
       color: var(--border-dark);
       position: relative;
     }
 
-    /* Container Viewport Penuh Terkunci (100dvh) */
     .app-viewport {
       width: 100vw;
       height: 100vh;
@@ -59,9 +59,10 @@
       position: relative;
       overflow: hidden;
       margin: 0 auto;
+      max-width: 900px;
     }
 
-    /* Hiasan Memphis Geometrik */
+    /* Memphis Deco */
     .memphis-dots-left {
       position: absolute;
       top: 12px;
@@ -74,22 +75,10 @@
       z-index: 1;
     }
 
-    .memphis-dots-right {
-      position: absolute;
-      top: 14%;
-      right: 14px;
-      width: 40px;
-      height: 70px;
-      background-image: radial-gradient(rgba(111, 38, 71, 0.35) 25%, transparent 25%);
-      background-size: 10px 10px;
-      pointer-events: none;
-      z-index: 1;
-    }
-
     .memphis-chevrons {
       position: absolute;
       right: 14px;
-      top: 80px;
+      top: 75px;
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -100,18 +89,18 @@
     .chevron {
       width: 16px;
       height: 16px;
-      border-right: 3.5px solid var(--burgundy);
-      border-bottom: 3.5px solid var(--burgundy);
+      border-right: 4px solid var(--burgundy);
+      border-bottom: 4px solid var(--burgundy);
       transform: rotate(45deg);
       border-radius: 1px;
     }
 
-    /* 1. BAHAGIAN ATAS: HEADER BANNER PADAT */
+    /* 1. BAHAGIAN ATAS */
     .header-section {
       width: 100%;
-      padding: clamp(8px, 1.4vh, 14px) 14px 0;
+      padding: clamp(8px, 1.8vh, 18px) 14px 2px;
       position: relative;
-      z-index: 6;
+      z-index: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -122,28 +111,28 @@
       background-color: var(--burgundy);
       color: var(--white);
       border: var(--border-thick);
-      border-radius: 12px;
-      padding: clamp(7px, 1.2vh, 12px) clamp(14px, 3.5vw, 30px);
+      border-radius: 14px;
+      padding: clamp(8px, 1.5vh, 14px) clamp(14px, 3.5vw, 32px);
       box-shadow: 4px 4px 0px var(--border-dark);
       position: relative;
-      transform: rotate(-0.5deg);
+      transform: rotate(-0.4deg);
       text-align: center;
-      width: min(94%, 600px);
+      width: min(96%, 600px);
     }
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.92rem, 3.8vw, 1.3rem);
+      font-size: clamp(0.95rem, 4vw, 1.35rem);
       font-weight: 900;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 1.25;
       text-shadow: 2px 2px 0px var(--burgundy-deep);
     }
 
     .cross-marks {
       position: absolute;
-      right: -8px;
+      right: -10px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -159,11 +148,11 @@
       display: flex;
       justify-content: center;
       gap: 5px;
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
     .strip-notch {
-      width: 12px;
+      width: 13px;
       height: 6px;
       background: var(--burgundy);
       border: 1.5px solid var(--border-dark);
@@ -171,29 +160,25 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* 2. BAHAGIAN TENGAH: MEMENUHI KETINGGIAN PENUH (ELIMINASI RUANG KOSONG) */
+    /* 2. BAHAGIAN TENGAH (MODEL KIRI MEMBESAR PENUH RUANG) */
     .middle-split-section {
       position: relative;
       flex: 1 1 0;
-      min-height: 0; /* Penting untuk mengelakkan overflow pada skrin tinggi */
+      min-height: 0;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
       padding: 0 10px 0 0;
       z-index: 3;
       overflow: visible;
     }
 
-    /* Kolum Kiri: Memenuhi Ketinggian Penuh dari Dasar hingga ke Paras Banner */
+    /* Kolum Model Kiri */
     .model-column-left {
       position: relative;
-      flex: 1.3;
-      width: 56%;
+      flex: 1.25;
       height: 100%;
-      min-height: 0;
       display: flex;
       justify-content: flex-start;
       align-items: flex-end;
@@ -201,175 +186,137 @@
       overflow: visible;
     }
 
-    /* Bulatan Sunburst Lebih Besar di Belakang Kepala & Badan */
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(280px, 78vw, 480px);
-      height: clamp(280px, 78vw, 480px);
-      background: radial-gradient(circle, #ffe699 0%, #f59e0b 80%);
+      width: clamp(260px, 75vw, 420px);
+      height: clamp(260px, 75vw, 420px);
+      background: radial-gradient(circle, #ffe082 0%, #f59e0b 80%);
       border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
-      bottom: 0px;
-      left: clamp(-45px, -6vw, -15px);
+      bottom: -15px;
+      left: clamp(-40px, -5vw, -10px);
       z-index: 1;
-      pointer-events: none;
     }
 
-    /* Pembungkus Imej Model */
-    .model-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      z-index: 3;
-    }
-
-    /* Imej Model: Diperbesarkan, Tegak Menolak ke Atas Menghapuskan Ruang Kosong */
     .model-cutout-img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      position: relative;
+      z-index: 3;
       width: 100%;
+      max-width: clamp(310px, 68vw, 480px);
       height: 100%;
-      max-height: 100%;
+      max-height: calc(100% + 15px);
       object-fit: contain;
       object-position: bottom left;
       mix-blend-mode: multiply;
       filter: contrast(1.12) brightness(1.02) saturate(1.05);
       pointer-events: none;
       transform-origin: bottom left;
-      /* Membesarkan skala agar kepala sampai ke paras atas */
-      transform: scale(1.18);
-      margin-left: -4px;
+      transform: scale(1.12);
+      margin-bottom: -4px;
+      margin-left: -6px;
     }
 
-    /* Vektor SVG Fallback jika fail imej tiada */
-    .model-svg-fallback {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-      z-index: 3;
-      object-fit: contain;
-      object-position: bottom left;
-      display: none;
-      pointer-events: none;
-      transform: scale(1.1);
-      transform-origin: bottom left;
-    }
-
-    /* Kolum Kanan: Teks & Buih Percakapan */
-    .text-column-right {
-      position: relative;
-      flex: 1.05;
-      width: 44%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding: 0 8px clamp(12px, 2.5vh, 22px) 4px;
-      z-index: 5;
-      gap: clamp(6px, 1.4vh, 14px);
-      max-width: 440px;
-    }
-
-    /* Buih Percakapan Retro */
+    /* Buih Percakapan */
     .speech-bubble {
-      position: relative;
-      align-self: flex-start;
+      position: absolute;
+      top: clamp(8px, 3vh, 36px);
+      left: clamp(130px, 34vw, 240px);
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: clamp(5px, 1vh, 8px) clamp(10px, 2.2vw, 16px);
-      font-size: clamp(0.72rem, 2.1vw, 0.88rem);
+      padding: 5px 12px;
+      font-size: clamp(0.72rem, 2.3vw, 0.88rem);
       font-weight: 900;
       text-align: center;
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
+      z-index: 6;
       line-height: 1.15;
-      transform: rotate(-3deg);
+      transform: rotate(-6deg);
       animation: bubbleFloat 3s infinite ease-in-out;
-      margin-bottom: clamp(4px, 0.8vh, 8px);
       white-space: nowrap;
     }
 
     .speech-bubble::after {
       content: '';
       position: absolute;
-      bottom: -7px;
-      left: 18px;
-      width: 10px;
-      height: 10px;
+      bottom: 2px;
+      left: 10px;
+      width: 9px;
+      height: 9px;
       background-color: var(--accent-teal);
       border: 2px solid var(--border-dark);
       border-radius: 50%;
     }
 
     @keyframes bubbleFloat {
-      0%, 100% { transform: rotate(-3deg) translateY(0); }
-      50% { transform: rotate(-1deg) translateY(-4px); }
+      0%, 100% { transform: rotate(-6deg) translateY(0); }
+      50% { transform: rotate(-4deg) translateY(-5px); }
+    }
+
+    /* Kolum Teks Kanan */
+    .text-column-right {
+      flex: 1.05;
+      padding-bottom: clamp(14px, 3vh, 26px);
+      padding-left: 4px;
+      padding-right: 8px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: clamp(8px, 1.6vh, 14px);
     }
 
     .badge-kualalumpur {
+      align-self: flex-start;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       background: #ffffff;
       color: var(--burgundy-deep);
-      border: 2.5px solid var(--border-dark);
+      border: 3px solid var(--border-dark);
       border-radius: 30px;
       padding: 4px 10px;
-      font-size: clamp(0.68rem, 2vw, 0.82rem);
+      font-size: clamp(0.7rem, 2.2vw, 0.82rem);
       font-weight: 900;
-      letter-spacing: 0.4px;
-      box-shadow: 2.5px 2.5px 0 var(--border-dark);
+      letter-spacing: 0.5px;
+      box-shadow: 3px 3px 0 var(--border-dark);
       text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .sub-bio {
-      font-size: clamp(0.84rem, 2.7vw, 1.18rem);
+      font-size: clamp(0.88rem, 3.1vw, 1.2rem);
       font-weight: 800;
       color: var(--burgundy-deep);
-      line-height: 1.32;
+      line-height: 1.35;
       text-align: left;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
     }
 
     .sub-bio mark {
       background: #ffffff;
       color: var(--burgundy-deep);
-      border: 1.5px solid var(--border-dark);
+      border: 2px solid var(--border-dark);
       padding: 1px 5px;
       border-radius: 5px;
       font-weight: 900;
-      box-shadow: 1.5px 1.5px 0 rgba(0,0,0,0.15);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
       display: inline-block;
       white-space: nowrap;
     }
 
-    .geo-zigzag {
-      margin-top: 2px;
-      width: clamp(40px, 7vw, 55px);
-      height: auto;
-    }
-
-    /* 3. BAHAGIAN BAWAH: PANEL FOOTER TETAP (DOCK) */
+    /* 3. BAHAGIAN BAWAH */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
       border-radius: 22px 22px 0 0;
-      padding: clamp(9px, 1.5vh, 14px) clamp(14px, 3.5vw, 32px) clamp(8px, 1.4vh, 14px);
+      padding: clamp(10px, 1.8vh, 16px) clamp(14px, 3.5vw, 30px) clamp(10px, 1.8vh, 16px);
       position: relative;
-      z-index: 6;
-      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+      z-index: 5;
+      box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.25);
       flex-shrink: 0;
     }
 
@@ -379,26 +326,14 @@
       position: relative;
     }
 
-    .bottom-dots {
-      position: absolute;
-      right: 0px;
-      top: -4px;
-      width: 30px;
-      height: 35px;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.85) 25%, transparent 25%);
-      background-size: 8px 8px;
-      opacity: 0.75;
-      pointer-events: none;
-    }
-
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.82rem, 2.5vw, 1rem);
+      font-size: clamp(0.82rem, 2.7vw, 1.05rem);
       font-weight: 900;
       letter-spacing: 0.8px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(6px, 1vh, 10px);
+      margin-bottom: clamp(7px, 1.4vh, 12px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -410,7 +345,7 @@
     .section-title::before,
     .section-title::after {
       content: "•••";
-      font-size: 10px;
+      font-size: 11px;
       color: var(--retro-yellow);
       letter-spacing: 2px;
     }
@@ -419,7 +354,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(6px, 1.2vh, 12px);
+      margin-bottom: clamp(7px, 1.4vh, 12px);
       gap: 10px;
       width: 100%;
     }
@@ -435,7 +370,7 @@
       border: none;
       cursor: pointer;
       font-family: inherit;
-      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .link-item:hover, .link-item:active {
@@ -443,14 +378,14 @@
     }
 
     .btn-circle {
-      width: clamp(46px, 10.5vw, 60px);
-      height: clamp(46px, 10.5vw, 60px);
+      width: clamp(48px, 11vw, 62px);
+      height: clamp(48px, 11vw, 62px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(17px, 4vw, 22px);
+      font-size: clamp(18px, 4.4vw, 24px);
       color: var(--white);
       box-shadow: 3.5px 3.5px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
@@ -475,7 +410,7 @@
     }
 
     .link-label {
-      font-size: clamp(0.66rem, 1.9vw, 0.8rem);
+      font-size: clamp(0.68rem, 2vw, 0.82rem);
       font-weight: 800;
       letter-spacing: 0.3px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -490,12 +425,12 @@
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
-      border-radius: 9px;
+      border-radius: 10px;
       text-align: center;
-      padding: clamp(6px, 1vh, 10px) 14px;
+      padding: clamp(7px, 1.3vh, 10px) 14px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.72rem, 2.1vw, 0.86rem);
+      font-size: clamp(0.74rem, 2.3vw, 0.88rem);
       letter-spacing: 0.3px;
       text-decoration: none;
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
@@ -513,22 +448,206 @@
       box-shadow: 2px 2px 0 var(--border-dark);
     }
 
-    /* Penyesuaian Skrin Sederhana & Komputer (Tablet / Desktop) */
+    /* ========================================================
+       MODAL DIALOG: KAWALAN MUTLAK SUPAYA TIDAK BOCOR KE BAWAH
+       ======================================================== */
+    .cloud-modal-overlay {
+      display: none !important;
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background: rgba(30, 8, 17, 0.8) !important;
+      backdrop-filter: blur(4px) !important;
+      -webkit-backdrop-filter: blur(4px) !important;
+      z-index: 99999 !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .cloud-modal-overlay.active {
+      display: flex !important;
+    }
+
+    .comic-cloud {
+      position: relative;
+      background: #ffffff;
+      border: var(--border-thick);
+      border-radius: 36px;
+      padding: 22px 20px 18px;
+      width: 92%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 7px 7px 0px var(--border-dark);
+      animation: modalPop 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalPop {
+      0% { transform: scale(0.8) translateY(16px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .cloud-bump-left {
+      position: absolute;
+      left: -18px;
+      top: 32px;
+      width: 40px;
+      height: 60px;
+      background: #ffffff;
+      border-left: var(--border-thick);
+      border-radius: 50% 0 0 50%;
+      z-index: 1;
+    }
+
+    .cloud-bump-right {
+      position: absolute;
+      right: -18px;
+      top: 38px;
+      width: 40px;
+      height: 60px;
+      background: #ffffff;
+      border-right: var(--border-thick);
+      border-radius: 0 50% 50% 0;
+      z-index: 1;
+    }
+
+    .cloud-content {
+      position: relative;
+      z-index: 5;
+    }
+
+    .cloud-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #ffe066;
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #501b33;
+      margin-bottom: 8px;
+    }
+
+    .badge-paykl { background: #fbcfe8; color: #831843; }
+    .badge-ejpph { background: #d1fae5; color: #065f46; }
+
+    .cloud-message {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .cloud-message mark {
+      background-color: #fde047;
+      color: #701a39;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+
+    .cloud-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .cloud-button-group-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .btn-cloud-proceed {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #2563eb;
+      color: #ffffff;
+      border: var(--border-thick);
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.76rem;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--border-dark);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .btn-cloud-proceed:hover {
+      background: #1d4ed8;
+      transform: translate(-1px, -1px);
+    }
+
+    .btn-cloud-proceed-magenta {
+      background: linear-gradient(135deg, #e11d48, #be185d);
+    }
+    .btn-cloud-proceed-emerald {
+      background: linear-gradient(135deg, #059669, #047857);
+    }
+
+    .btn-cloud-subtle {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 2px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 7px 9px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .btn-cloud-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px;
+      text-decoration: underline;
+    }
+
+    .cloud-close-corner {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 30px;
+      height: 30px;
+      background: #ef4444;
+      color: #ffffff;
+      border: var(--border-thick);
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      z-index: 10;
+    }
+
     @media (min-width: 768px) {
-      .middle-split-section {
-        padding: 0 20px;
-      }
-      .model-column-left {
-        width: 48%;
-      }
-      .text-column-right {
-        width: 52%;
-        max-width: 460px;
-        gap: 16px;
-      }
-      .model-cutout-img {
-        transform: scale(1.08);
-      }
+      .middle-split-section { padding: 0 20px; }
+      .text-column-right { max-width: 440px; }
     }
   </style>
 </head>
@@ -536,16 +655,14 @@
 
   <main class="app-viewport" role="main">
     
-    <!-- Corak Memphis -->
     <div class="memphis-dots-left" aria-hidden="true"></div>
-    <div class="memphis-dots-right" aria-hidden="true"></div>
     <div class="memphis-chevrons" aria-hidden="true">
       <div class="chevron"></div>
       <div class="chevron"></div>
       <div class="chevron"></div>
     </div>
 
-    <!-- 1. BAHAGIAN ATAS: BANNER KOMIK -->
+    <!-- 1. BAHAGIAN ATAS -->
     <header class="header-section">
       <div class="title-banner">
         <h1>CUKAI TAKSIRAN - PAUTAN PANTAS</h1>
@@ -566,115 +683,66 @@
       </div>
     </header>
 
-    <!-- 2. BAHAGIAN TENGAH: MODEL KIRI BERDIRI TEGAK & MEMENUHI RUANG -->
-    <section class="middle-split-section" aria-label="Visual Model & Maklumat">
+    <!-- 2. BAHAGIAN TENGAH: MODEL KIRI & TEKS KANAN -->
+    <section class="middle-split-section" aria-label="Pengenalan & Visual">
       
-      <!-- Kolum Kiri: Model Wanita Memenuhi Ketinggian Penuh hingga Footer -->
+      <!-- Kolum Model Kiri -->
       <div class="model-column-left">
-        <!-- Bulatan Latar Geometrik -->
         <div class="model-backdrop-sun" aria-hidden="true"></div>
 
-        <div class="model-wrapper">
-          <!-- Imej Model Tempatan -->
-          <img 
-            id="modelImg"
-            src="AC.png" 
-            alt="Model Wanita DBKL" 
-            class="model-cutout-img"
-            onerror="handleImageError(this);"
-          />
+        <img 
+          id="modelImage"
+          src="AC.png" 
+          alt="Model Wanita DBKL" 
+          class="model-cutout-img"
+          onerror="handleImageFallback(this)"
+        />
 
-          <!-- Fallback Vektor SVG sekiranya imej AC.png tidak dijumpai dalam persekitaran tempatan -->
-          <svg id="modelSvg" class="model-svg-fallback" viewBox="0 0 320 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Bayang Badan & Kotak -->
-            <path d="M70 480 L90 280 L160 270 L240 285 L260 480 Z" fill="#4d5345" />
-            <path d="M125 480 L125 350 L195 350 L195 480 Z" fill="#3b4034" />
-            <!-- Tali Pinggang & Seluar -->
-            <rect x="110" y="340" width="100" height="24" rx="4" fill="#32362c" />
-            <rect x="145" y="336" width="30" height="32" rx="4" fill="#d4af37" stroke="#1a1a1a" stroke-width="3" />
-            <!-- Baju Lapisan Dalam Gelap -->
-            <path d="M125 210 L195 210 L205 340 L115 340 Z" fill="#0f262b" />
-            <!-- Blazer Hijau Zaitun (Olive Suit) -->
-            <path d="M80 230 L135 340 L110 345 L65 245 Z" fill="#585f4f" stroke="#1a1a1a" stroke-width="3" />
-            <path d="M240 230 L185 340 L210 345 L255 245 Z" fill="#585f4f" stroke="#1a1a1a" stroke-width="3" />
-            <path d="M100 215 L145 310 L160 210 Z" fill="#6a7260" stroke="#1a1a1a" stroke-width="2" />
-            <path d="M220 215 L175 310 L160 210 Z" fill="#6a7260" stroke="#1a1a1a" stroke-width="2" />
-            <!-- Tangan Kiri di Poket -->
-            <path d="M245 250 L270 330 L250 370 L210 360" stroke="#1a1a1a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M245 250 L270 330 L250 370 L210 360" stroke="#585f4f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
-            <!-- Tangan Kanan -->
-            <path d="M75 250 L55 330 L80 370 L115 360" stroke="#1a1a1a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M75 250 L55 330 L80 370 L115 360" stroke="#585f4f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
-            <!-- Leher Hijab & Leher Turtleneck -->
-            <path d="M130 180 Q160 215 190 180 L195 220 L125 220 Z" fill="#0f262b" stroke="#1a1a1a" stroke-width="2" />
-            <!-- Wajah Berseri -->
-            <ellipse cx="160" cy="155" rx="34" ry="42" fill="#ffd0b0" stroke="#1a1a1a" stroke-width="2" />
-            <path d="M145 150 Q150 146 155 150" stroke="#331b11" stroke-width="3" stroke-linecap="round" />
-            <path d="M165 150 Q170 146 175 150" stroke="#331b11" stroke-width="3" stroke-linecap="round" />
-            <path d="M152 172 Q160 178 168 172" stroke="#be123c" stroke-width="3" stroke-linecap="round" />
-            <!-- Hijab Hitam Moden & Kemas -->
-            <path d="M125 155 C125 105 140 85 160 85 C180 85 195 105 195 155 C195 180 180 195 160 195 C140 195 125 180 125 155 Z" fill="#132729" stroke="#1a1a1a" stroke-width="3" />
-            <path d="M136 128 C144 116 176 116 184 128 C184 165 180 180 160 180 C140 180 136 165 136 128 Z" fill="#ffd0b0" />
-            <!-- Mata & Cermin Senyum -->
-            <circle cx="148" cy="146" r="3" fill="#1a1a1a" />
-            <circle cx="172" cy="146" r="3" fill="#1a1a1a" />
-            <path d="M152 165 Q160 172 168 165" stroke="#be185d" stroke-width="3" stroke-linecap="round" />
-          </svg>
+        <div class="speech-bubble" aria-label="Notis Interaktif">
+          Klik Pautan<br>Di Bawah!
         </div>
       </div>
 
-      <!-- Kolum Kanan: Maklumat, Lencana, Teks Penerangan & Buih Ucapan -->
+      <!-- Kolum Teks Kanan -->
       <div class="text-column-right">
-        
-        <!-- Buih Percakapan Interaktif -->
-        <div class="speech-bubble" aria-label="Notis Interaktif">
-          Klik Pautan Di Bawah! 👇
-        </div>
-
-        <!-- Lencana Wilayah -->
         <div class="badge-kualalumpur">
           <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
         </div>
 
-        <!-- Teks Penerangan dengan Markah Terang -->
         <p class="sub-bio">
           Terima kasih warga kota! Sumbangan <mark>Cukai Taksiran</mark> anda nadi kemakmuran dan keselesaan Kuala Lumpur. Jom selesaikan dengan mudah hari ini!
         </p>
 
-        <!-- Garisan Corak Zigzag Memphis -->
-        <svg class="geo-zigzag" viewBox="0 0 50 18" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
-          <path d="M 2 13 L 12 4 L 22 13 L 32 4 L 42 13" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg width="46" height="18" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
+          <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-
       </div>
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: PANEL FOOTER 'LINK PANTAS DBKL' -->
+    <!-- 3. BAHAGIAN BAWAH: FOOTER & BUTANG -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
-        <div class="bottom-dots" aria-hidden="true"></div>
-
+        
         <h2 class="section-title">LINK PANTAS DBKL</h2>
 
-        <!-- Tiga Butang Pantas Bulat -->
         <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
           
-          <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar - Pembayaran Cukai Taksiran">
+          <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar">
             <div class="btn-circle btn-dbklbayar">
               <i class="fa-solid fa-credit-card"></i>
             </div>
             <span class="link-label">DBKLBayar</span>
           </button>
 
-          <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pay@KL - Aplikasi Mudah Alih DBKL">
+          <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pay@KL">
             <div class="btn-circle btn-paykl">
               <i class="fa-solid fa-mobile-screen-button"></i>
             </div>
             <span class="link-label">Pay@KL</span>
           </button>
 
-          <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="eJPPH - Penilaian dan Pengurusan Harta">
+          <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="eJPPH">
             <div class="btn-circle btn-ejpph">
               <i class="fa-solid fa-house-chimney-window"></i>
             </div>
@@ -683,7 +751,6 @@
 
         </nav>
 
-        <!-- Pautan ke Portal Rasmi DBKL -->
         <a href="https://www.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="portal-banner-link">
           <i class="fa-solid fa-globe"></i>
           <span>Portal Rasmi: dbkl.gov.my</span>
@@ -691,130 +758,121 @@
       </div>
     </footer>
 
-    <!-- 4. MODAL AWAN KOMIK RETRO -->
-
-    <!-- Modal 1: DBKLBayar -->
-    <div id="cloudModalDBKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleDBKL">
-      <div class="comic-cloud">
-        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan">✕</button>
-        <div class="cloud-bump-left" aria-hidden="true"></div>
-        <div class="cloud-bump-right" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
-
-        <div class="cloud-content">
-          <span class="cloud-badge">
-            <i class="fa-solid fa-bell"></i> Makluman Pembayaran
-          </span>
-          <p id="cloudTitleDBKL" class="cloud-message">
-            Layari dan gunakan <mark>e-Bayar</mark> untuk membuat bayaran <strong>Cukai Taksiran</strong>.
-          </p>
-
-          <div class="cloud-actions">
-            <a href="https://dbayar.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed dismiss-on-click">
-              <span>Teruskan ke e-Bayar</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 2: Pay@KL -->
-    <div id="cloudModalPayKL" class="cloud-modal-overlay cloud-paykl" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePayKL">
-      <div class="comic-cloud">
-        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan Pay@KL">✕</button>
-        <div class="cloud-bump-left" aria-hidden="true"></div>
-        <div class="cloud-bump-right" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
-
-        <div class="cloud-content">
-          <span class="cloud-badge badge-paykl">
-            <i class="fa-solid fa-mobile-screen"></i> Aplikasi Mudah Alih
-          </span>
-          <p id="cloudTitlePayKL" class="cloud-message">
-            Muat turun segera aplikasi <mark>Pay@KL</mark> <strong>(Android/iOS)</strong> di perkakasan anda.
-          </p>
-
-          <div class="cloud-actions">
-            <a href="https://mobis.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-magenta dismiss-on-click">
-              <i class="fa-solid fa-cloud-arrow-down"></i>
-              <span>Muat Turun di Mobis</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-
-            <div class="cloud-button-group-duo">
-              <a href="https://play.google.com/store/search?q=Pay%40KL+DBKL&c=apps" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
-                <i class="fa-brands fa-google-play"></i> Android
-              </a>
-              <a href="https://apps.apple.com/my/app/pay-kl/id1475712622" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
-                <i class="fa-brands fa-apple"></i> iOS
-              </a>
-            </div>
-
-            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 3: eJPPH -->
-    <div id="cloudModalEJPPH" class="cloud-modal-overlay cloud-ejpph" role="dialog" aria-modal="true" aria-labelledby="cloudTitleEJPPH">
-      <div class="comic-cloud">
-        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan eJPPH">✕</button>
-        <div class="cloud-bump-left" aria-hidden="true"></div>
-        <div class="cloud-bump-right" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
-        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
-
-        <div class="cloud-content">
-          <span class="cloud-badge badge-ejpph">
-            <i class="fa-solid fa-building-user"></i> Jabatan Penilaian &amp; Pengurusan Harta
-          </span>
-          <p id="cloudTitleEJPPH" class="cloud-message">
-            Kemaskini <mark>pemilikan harta anda</mark>, untuk memudahkan urusan kini dan akan datang.
-          </p>
-
-          <div class="cloud-actions">
-            <a href="https://ejpph.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-emerald dismiss-on-click">
-              <i class="fa-solid fa-house-circle-check"></i>
-              <span>Layari Portal eJPPH</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </main>
 
+  <!-- ==============================================
+       MODALS DIALOG TERSEMBUNYI (DI LUAR DOKUMEN ALIRAN)
+       ============================================== -->
+
+  <!-- Modal DBKLBayar -->
+  <div id="cloudModalDBKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleDBKL">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge">
+          <i class="fa-solid fa-bell"></i> Makluman Pembayaran
+        </span>
+        <p id="cloudTitleDBKL" class="cloud-message">
+          Layari dan gunakan <mark>e-Bayar</mark> untuk membuat bayaran <strong>Cukai Taksiran</strong>.
+        </p>
+
+        <div class="cloud-actions">
+          <a href="https://dbayar.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed dismiss-on-click">
+            <span>Teruskan ke e-Bayar</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pay@KL -->
+  <div id="cloudModalPayKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePayKL">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge badge-paykl">
+          <i class="fa-solid fa-mobile-screen"></i> Aplikasi Mudah Alih
+        </span>
+        <p id="cloudTitlePayKL" class="cloud-message">
+          Muat turun segera aplikasi <mark>Pay@KL</mark> <strong>(Android/iOS)</strong> di perkakasan anda.
+        </p>
+
+        <div class="cloud-actions">
+          <a href="https://mobis.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-magenta dismiss-on-click">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <span>Muat Turun di Mobis</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+          <div class="cloud-button-group-duo">
+            <a href="https://play.google.com/store/search?q=Pay%40KL+DBKL&c=apps" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
+              <i class="fa-brands fa-google-play"></i> Android
+            </a>
+            <a href="https://apps.apple.com/my/app/pay-kl/id1475712622" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
+              <i class="fa-brands fa-apple"></i> iOS
+            </a>
+          </div>
+
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal eJPPH -->
+  <div id="cloudModalEJPPH" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleEJPPH">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge badge-ejpph">
+          <i class="fa-solid fa-building-user"></i> Jabatan Penilaian &amp; Pengurusan Harta
+        </span>
+        <p id="cloudTitleEJPPH" class="cloud-message">
+          Kemaskini <mark>pemilikan harta anda</mark>, untuk memudahkan urusan kini dan akan datang.
+        </p>
+
+        <div class="cloud-actions">
+          <a href="https://ejpph.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-emerald dismiss-on-click">
+            <i class="fa-solid fa-house-circle-check"></i>
+            <span>Layari Portal eJPPH</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Interaktiviti -->
   <script>
-    // Pengendali Fallback Imej
-    function handleImageError(imgElement) {
-      imgElement.onerror = null;
-      // Cuba muatkan fail kedua jika ada
-      const fallbackSrc = 'WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg';
-      if (!imgElement.dataset.triedFallback) {
-        imgElement.dataset.triedFallback = 'true';
-        imgElement.src = fallbackSrc;
+    // Pengendali fallback jika imej tempatan tiada di GitHub
+    function handleImageFallback(img) {
+      if (!img.dataset.triedBackup) {
+        img.dataset.triedBackup = "true";
+        img.src = "WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg";
       } else {
-        // Jika kedua-dua fail tiada dalam folder pelayan, paparkan ilustrasi SVG berkualiti tinggi
-        imgElement.style.display = 'none';
-        const svgFallback = document.getElementById('modelSvg');
-        if (svgFallback) {
-          svgFallback.style.display = 'block';
-        }
+        img.onerror = null;
+        // Paparkan ilustrasi SVG sandaran jika kedua-dua imej tiada
+        img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 480' width='320' height='480'><path d='M80 480 C80 320, 110 260, 160 260 C210 260, 240 320, 240 480 Z' fill='%235d644d'/><ellipse cx='160' cy='200' rx='45' ry='60' fill='%231f4037'/><ellipse cx='160' cy='195' rx='30' ry='38' fill='%23f3cfb3'/><circle cx='148' cy='190' r='3.5' fill='%23333'/><circle cx='172' cy='190' r='3.5' fill='%23333'/><path d='M150 210 Q160 220 170 210' stroke='%23d97768' stroke-width='3' fill='none' stroke-linecap='round'/></svg>";
       }
     }
 
-    // Pengurusan Modal Awan Komik
     (function() {
       const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
       const payklTrigger = document.getElementById('btn-paykl-trigger');
       const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
+      
       const modalDBKL = document.getElementById('cloudModalDBKL');
       const modalPayKL = document.getElementById('cloudModalPayKL');
       const modalEJPPH = document.getElementById('cloudModalEJPPH');
@@ -824,6 +882,7 @@
         closeAllModals();
         if (modal) {
           modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
       }
 
@@ -831,6 +890,7 @@
         allModals.forEach(m => {
           if (m) m.classList.remove('active');
         });
+        document.body.style.overflow = '';
       }
 
       if (dbklTrigger) {
@@ -873,7 +933,7 @@
 
       document.querySelectorAll('.dismiss-on-click').forEach(link => {
         link.addEventListener('click', function() {
-          setTimeout(closeAllModals, 350);
+          setTimeout(closeAllModals, 300);
         });
       });
 
