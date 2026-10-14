@@ -174,7 +174,6 @@
       overflow: visible;
     }
 
-    /* Kolum Model Kiri */
     .model-column-left {
       position: relative;
       flex: 1.25;
@@ -186,7 +185,7 @@
       overflow: visible;
     }
 
-    /* JAM DIGITAL RETRO-TECH DI SEBELAH KANAN */
+    /* JAM DIGITAL RETRO-TECH */
     .retro-clock-wrapper {
       position: absolute;
       top: clamp(6px, 1.5vh, 18px);
@@ -322,7 +321,6 @@
       margin-left: -6px;
     }
 
-    /* Buih Percakapan */
     .speech-bubble {
       position: absolute;
       top: clamp(60px, 10vh, 95px);
@@ -360,7 +358,6 @@
       50% { transform: rotate(-3deg) translateY(-4px); }
     }
 
-    /* Kolum Teks Kanan */
     .text-column-right {
       flex: 1.05;
       padding-bottom: clamp(14px, 3vh, 26px);
@@ -499,7 +496,6 @@
       transition: all 0.2s ease;
     }
 
-    /* Butang Khas DBKL & Agensi */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -518,7 +514,6 @@
       text-shadow: 0 0 6px rgba(56, 239, 125, 0.6);
     }
 
-    /* Butang Baru: TNG, Grab & PBTPay */
     .btn-tng {
       background: linear-gradient(135deg, #005aa9 0%, #002244 100%);
       border-color: #ffffff;
@@ -586,7 +581,7 @@
     }
 
     /* ========================================================
-       MODAL DIALOG
+       MODAL DIALOG POPUP
        ======================================================== */
     .cloud-modal-overlay {
       display: none !important;
@@ -674,6 +669,7 @@
 
     .badge-paykl { background: #fbcfe8; color: #831843; }
     .badge-ejpph { background: #d1fae5; color: #065f46; }
+    .badge-tng { background: #dbeafe; color: #003b73; }
 
     .cloud-message {
       font-family: 'Space Grotesk', sans-serif;
@@ -689,6 +685,53 @@
       color: #701a39;
       padding: 0 4px;
       border-radius: 4px;
+    }
+
+    /* Senarai Langkah TNG */
+    .tng-steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      text-align: left;
+    }
+
+    .tng-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: #f8fafc;
+      border: 2px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 6px 9px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.35;
+    }
+
+    .tng-step-item mark {
+      background-color: #fef08a;
+      color: #003b73;
+      padding: 0 3px;
+      border-radius: 3px;
+    }
+
+    .step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #005aa9;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .cloud-actions {
@@ -732,6 +775,9 @@
     }
     .btn-cloud-proceed-emerald {
       background: linear-gradient(135deg, #059669, #047857);
+    }
+    .btn-cloud-proceed-tng {
+      background: linear-gradient(135deg, #005aa9, #002244);
     }
 
     .btn-cloud-subtle {
@@ -876,7 +922,7 @@
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: FOOTER & 6 BUTANG TINDAKAN -->
+    <!-- 3. BAHAGIAN BAWAH: FOOTER & BUTANG TINDAKAN -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         
@@ -908,13 +954,13 @@
             <span class="link-label">eJPPH</span>
           </button>
 
-          <!-- 4. TNG (Touch 'n Go) -->
-          <a href="https://www.touchngo.com.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="Touch 'n Go eWallet">
+          <!-- 4. TNG (Membuka Pop Up Awan) -->
+          <button type="button" id="btn-tng-trigger" class="link-item" aria-haspopup="dialog" aria-label="Touch 'n Go eWallet">
             <div class="btn-circle btn-tng">
               <i class="fa-solid fa-wallet"></i>
             </div>
             <span class="link-label">TNG</span>
-          </a>
+          </button>
 
           <!-- 5. Grab -->
           <a href="https://www.grab.com/my/pay/" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="GrabPay">
@@ -944,7 +990,7 @@
   </main>
 
   <!-- ==============================================
-       MODALS DIALOG TERSEMBUNYI
+       MODALS DIALOG POPUP AWAN
        ============================================== -->
 
   <!-- Modal DBKLBayar -->
@@ -1037,7 +1083,49 @@
     </div>
   </div>
 
-  <!-- Script Interaktiviti & Jam Digital Real-time -->
+  <!-- Modal TNG Baharu -->
+  <div id="cloudModalTNG" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleTNG">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge badge-tng">
+          <i class="fa-solid fa-wallet"></i> Touch 'n Go eWallet
+        </span>
+        
+        <p id="cloudTitleTNG" class="cloud-message" style="margin-bottom: 8px;">
+          Panduan Bayaran Cukai Taksiran di <mark>TNG eWallet</mark>:
+        </p>
+
+        <ol class="tng-steps-list">
+          <li class="tng-step-item">
+            <span class="step-num">1</span>
+            <span>Tekan <mark>“Bil”</mark> &rarr; buat carian masukkan <strong>DBKL</strong></span>
+          </li>
+          <li class="tng-step-item">
+            <span class="step-num">2</span>
+            <span>Pilih perkhidmatan <strong>DBKL (Taksiran)</strong> &rarr; masukkan nombor Akaun &rarr; Tekan <mark>“Seterusnya”</mark></span>
+          </li>
+          <li class="tng-step-item">
+            <span class="step-num">3</span>
+            <span>Sahkan jumlah bayaran &rarr; Tekan <mark>“Bayar”</mark> &mdash; selesai!</span>
+          </li>
+        </ol>
+
+        <div class="cloud-actions">
+          <a href="https://www.tngdigital.com.my/promotions/pay-dbkl-bills-in-tng-ewallet-now/" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-tng dismiss-on-click">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Info Lanjut di TNG Digital</span>
+          </a>
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Interaktiviti, Jam Digital & Pengendali Modal -->
   <script>
     function handleImageFallback(img) {
       if (!img.dataset.triedBackup) {
@@ -1092,11 +1180,14 @@
       const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
       const payklTrigger = document.getElementById('btn-paykl-trigger');
       const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
+      const tngTrigger = document.getElementById('btn-tng-trigger');
       
       const modalDBKL = document.getElementById('cloudModalDBKL');
       const modalPayKL = document.getElementById('cloudModalPayKL');
       const modalEJPPH = document.getElementById('cloudModalEJPPH');
-      const allModals = [modalDBKL, modalPayKL, modalEJPPH];
+      const modalTNG = document.getElementById('cloudModalTNG');
+      
+      const allModals = [modalDBKL, modalPayKL, modalEJPPH, modalTNG];
 
       function openModal(modal) {
         closeAllModals();
@@ -1131,6 +1222,13 @@
         ejpphTrigger.addEventListener('click', function(e) {
           e.preventDefault();
           openModal(modalEJPPH);
+        });
+      }
+
+      if (tngTrigger) {
+        tngTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modalTNG);
         });
       }
 
