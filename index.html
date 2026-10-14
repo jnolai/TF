@@ -416,7 +416,7 @@
       color: var(--white);
       border-top: var(--border-thick);
       border-radius: 22px 22px 0 0;
-      padding: clamp(8px, 1.5vh, 14px) clamp(12px, 3.5vw, 26px) clamp(6px, 1.2vh, 10px);
+      padding: clamp(8px, 1.4vh, 14px) clamp(10px, 3vw, 24px) clamp(6px, 1.2vh, 10px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.25);
@@ -432,7 +432,7 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-size: clamp(0.82rem, 2.7vw, 1.05rem);
       font-weight: 900;
       letter-spacing: 0.8px;
       color: var(--retro-yellow);
@@ -453,13 +453,13 @@
       letter-spacing: 2px;
     }
 
-    /* Grid 6 Ikon */
+    /* GRID 6 IKON: DIBESARKAN & DISELARASKAN SECARA DINAMIK */
     .action-buttons-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      row-gap: clamp(8px, 1.4vh, 12px);
-      column-gap: clamp(6px, 1.8vw, 12px);
-      margin-bottom: clamp(8px, 1.4vh, 12px);
+      row-gap: clamp(10px, 1.8vh, 16px);
+      column-gap: clamp(8px, 2.2vw, 16px);
+      margin-bottom: clamp(10px, 1.6vh, 14px);
       width: 100%;
       justify-items: center;
     }
@@ -470,32 +470,36 @@
       align-items: center;
       text-decoration: none;
       color: var(--white);
-      gap: 4px;
+      gap: 6px;
       background: none;
       border: none;
       cursor: pointer;
       font-family: inherit;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      width: 100%;
     }
 
     .link-item:hover, .link-item:active {
       transform: translateY(-3px) scale(1.05);
     }
 
+    /* BULATAN IKON DIBESARKAN SUPAYA LEBIH JELAS & MESRA SENTUHAN */
     .btn-circle {
-      width: clamp(44px, 10vw, 54px);
-      height: clamp(44px, 10vw, 54px);
+      width: clamp(52px, 13.5vw, 68px);
+      height: clamp(52px, 13.5vw, 68px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(16px, 4vw, 21px);
+      font-size: clamp(20px, 5.2vw, 28px);
       color: var(--white);
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+      box-shadow: 4px 4px 0px var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.35);
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
 
+    /* Gaya Kecerunan Butang */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -507,7 +511,7 @@
     .btn-ejpph {
       background: linear-gradient(145deg, #1f242d 0%, #0c0e12 100%);
       border-color: #ffffff;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
+      box-shadow: 4px 4px 0px var(--border-dark), 0 0 12px rgba(56, 239, 125, 0.35);
     }
     .btn-ejpph i {
       color: #38ef7d;
@@ -517,7 +521,7 @@
     .btn-tng {
       background: linear-gradient(135deg, #005aa9 0%, #002244 100%);
       border-color: #ffffff;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(0, 90, 169, 0.4);
+      box-shadow: 4px 4px 0px var(--border-dark), 0 0 12px rgba(0, 90, 169, 0.45);
     }
     .btn-tng i {
       color: #ffd166;
@@ -526,45 +530,48 @@
     .btn-pos {
       background: linear-gradient(135deg, #ed1c24 0%, #b30c12 55%, #002d62 100%);
       border-color: #ffffff;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(237, 28, 36, 0.4);
+      box-shadow: 4px 4px 0px var(--border-dark), 0 0 12px rgba(237, 28, 36, 0.45);
     }
     .btn-pos i {
       color: #ffffff;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
     }
 
     .btn-pbtpay {
       background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
       border-color: #ffffff;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(255, 107, 53, 0.35);
+      box-shadow: 4px 4px 0px var(--border-dark), 0 0 12px rgba(255, 107, 53, 0.4);
     }
     .btn-pbtpay i {
       color: #ffffff;
     }
 
+    /* LABEL TEKS DIBESARKAN UNTUK KETERBACAAN */
     .link-label {
-      font-size: clamp(0.65rem, 1.9vw, 0.78rem);
+      font-size: clamp(0.72rem, 2.3vw, 0.88rem);
       font-weight: 800;
-      letter-spacing: 0.3px;
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.4px;
+      text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.55);
+      text-align: center;
+      line-height: 1.1;
     }
 
     .portal-banner-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+      gap: 8px;
       width: 100%;
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
-      padding: clamp(6px, 1.2vh, 9px) 14px;
+      padding: clamp(8px, 1.4vh, 11px) 14px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.72rem, 2.2vw, 0.85rem);
-      letter-spacing: 0.3px;
+      font-size: clamp(0.76rem, 2.4vw, 0.92rem);
+      letter-spacing: 0.4px;
       text-decoration: none;
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
       transition: all 0.18s ease;
@@ -581,7 +588,7 @@
       box-shadow: 2px 2px 0 var(--border-dark);
     }
 
-    /* TEKS HAKCIPTA KECIL SEBELAH KANAN FOOTER */
+    /* TEKS HAKCIPTA KANAN BAWAH */
     .footer-copyright-right {
       display: flex;
       justify-content: flex-end;
@@ -860,6 +867,14 @@
       .middle-split-section { padding: 0 20px; }
       .text-column-right { max-width: 440px; }
       .speech-bubble { top: 90px; left: 220px; }
+      .btn-circle {
+        width: 66px;
+        height: 66px;
+        font-size: 26px;
+      }
+      .link-label {
+        font-size: 0.84rem;
+      }
     }
   </style>
 </head>
