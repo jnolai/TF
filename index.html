@@ -186,9 +186,7 @@
       overflow: visible;
     }
 
-    /* ========================================================
-       JAM DIGITAL RETRO-TECH DI SEBELAH KANAN
-       ======================================================== */
+    /* JAM DIGITAL RETRO-TECH DI SEBELAH KANAN */
     .retro-clock-wrapper {
       position: absolute;
       top: clamp(6px, 1.5vh, 18px);
@@ -421,7 +419,7 @@
       color: var(--white);
       border-top: var(--border-thick);
       border-radius: 22px 22px 0 0;
-      padding: clamp(10px, 1.8vh, 16px) clamp(14px, 3.5vw, 30px) clamp(10px, 1.8vh, 16px);
+      padding: clamp(8px, 1.5vh, 14px) clamp(12px, 3.5vw, 26px) clamp(8px, 1.5vh, 14px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.25);
@@ -437,11 +435,11 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.82rem, 2.7vw, 1.05rem);
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
       font-weight: 900;
       letter-spacing: 0.8px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(7px, 1.4vh, 12px);
+      margin-bottom: clamp(6px, 1.2vh, 10px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -458,13 +456,15 @@
       letter-spacing: 2px;
     }
 
+    /* Grid 6 Ikon: 3 Lajur x 2 Baris */
     .action-buttons-grid {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-bottom: clamp(7px, 1.4vh, 12px);
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: clamp(8px, 1.4vh, 12px);
+      column-gap: clamp(6px, 1.8vw, 12px);
+      margin-bottom: clamp(8px, 1.4vh, 12px);
       width: 100%;
+      justify-items: center;
     }
 
     .link-item {
@@ -473,7 +473,7 @@
       align-items: center;
       text-decoration: none;
       color: var(--white);
-      gap: 5px;
+      gap: 4px;
       background: none;
       border: none;
       cursor: pointer;
@@ -486,19 +486,20 @@
     }
 
     .btn-circle {
-      width: clamp(48px, 11vw, 62px);
-      height: clamp(48px, 11vw, 62px);
+      width: clamp(44px, 10vw, 54px);
+      height: clamp(44px, 10vw, 54px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(18px, 4.4vw, 24px);
+      font-size: clamp(16px, 4vw, 21px);
       color: var(--white);
       box-shadow: 3.5px 3.5px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
     }
 
+    /* Butang Khas DBKL & Agensi */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -517,8 +518,36 @@
       text-shadow: 0 0 6px rgba(56, 239, 125, 0.6);
     }
 
+    /* Butang Baru: TNG, Grab & PBTPay */
+    .btn-tng {
+      background: linear-gradient(135deg, #005aa9 0%, #002244 100%);
+      border-color: #ffffff;
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(0, 90, 169, 0.4);
+    }
+    .btn-tng i {
+      color: #ffd166;
+    }
+
+    .btn-grab {
+      background: linear-gradient(135deg, #00b14f 0%, #006837 100%);
+      border-color: #ffffff;
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(0, 177, 79, 0.35);
+    }
+    .btn-grab i {
+      color: #ffffff;
+    }
+
+    .btn-pbtpay {
+      background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+      border-color: #ffffff;
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(255, 107, 53, 0.35);
+    }
+    .btn-pbtpay i {
+      color: #ffffff;
+    }
+
     .link-label {
-      font-size: clamp(0.68rem, 2vw, 0.82rem);
+      font-size: clamp(0.65rem, 1.9vw, 0.78rem);
       font-weight: 800;
       letter-spacing: 0.3px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -535,10 +564,10 @@
       border: var(--border-thick);
       border-radius: 10px;
       text-align: center;
-      padding: clamp(7px, 1.3vh, 10px) 14px;
+      padding: clamp(6px, 1.2vh, 9px) 14px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.74rem, 2.3vw, 0.88rem);
+      font-size: clamp(0.72rem, 2.2vw, 0.85rem);
       letter-spacing: 0.3px;
       text-decoration: none;
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
@@ -847,7 +876,7 @@
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: FOOTER & BUTANG -->
+    <!-- 3. BAHAGIAN BAWAH: FOOTER & 6 BUTANG TINDAKAN -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         
@@ -855,6 +884,7 @@
 
         <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
           
+          <!-- 1. DBKLBayar -->
           <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar">
             <div class="btn-circle btn-dbklbayar">
               <i class="fa-solid fa-credit-card"></i>
@@ -862,6 +892,7 @@
             <span class="link-label">DBKLBayar</span>
           </button>
 
+          <!-- 2. Pay@KL -->
           <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pay@KL">
             <div class="btn-circle btn-paykl">
               <i class="fa-solid fa-mobile-screen-button"></i>
@@ -869,12 +900,37 @@
             <span class="link-label">Pay@KL</span>
           </button>
 
+          <!-- 3. eJPPH -->
           <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="eJPPH">
             <div class="btn-circle btn-ejpph">
               <i class="fa-solid fa-house-chimney-window"></i>
             </div>
             <span class="link-label">eJPPH</span>
           </button>
+
+          <!-- 4. TNG (Touch 'n Go) -->
+          <a href="https://www.touchngo.com.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="Touch 'n Go eWallet">
+            <div class="btn-circle btn-tng">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <span class="link-label">TNG</span>
+          </a>
+
+          <!-- 5. Grab -->
+          <a href="https://www.grab.com/my/pay/" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="GrabPay">
+            <div class="btn-circle btn-grab">
+              <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
+            <span class="link-label">Grab</span>
+          </a>
+
+          <!-- 6. PBTPay -->
+          <a href="https://pbtpay.kpkt.gov.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="PBTPay">
+            <div class="btn-circle btn-pbtpay">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <span class="link-label">PBTPay</span>
+          </a>
 
         </nav>
 
