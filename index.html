@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biolink - LINK PANTAS DBKL</title>
+  
+  <!-- Google Fonts: Montserrat & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-yellow: #fba92b;
+      --bg-yellow-dark: #f09513;
+      --burgundy: #6f2647;
+      --burgundy-dark: #501b33;
+      --burgundy-deep: #3c1225;
+      --accent-teal: #22d3ee;
+      --accent-teal-dark: #0891b2;
+      --border-dark: #1f1f1f;
+      --white: #ffffff;
+      --retro-yellow: #ffd166;
+      --border-thick: 3px solid #1f1f1f;
+      --card-radius: 42px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 25%, #fde2ed 0%, #f7d5e4 60%, #efbed4 100%);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 14px;
+      color: var(--border-dark);
+    }
+
+    /* Container Kad Telefon Retro (Memphis Poster Card) */
+    .biolink-card {
+      width: 100%;
+      max-width: 410px;
+      background: linear-gradient(180deg, #fbb839 0%, var(--bg-yellow) 42%, var(--bg-yellow-dark) 100%);
+      border-radius: var(--card-radius);
+      border: 8px solid #ffffff;
+      box-shadow: 0 22px 50px rgba(78, 14, 43, 0.28), 0 6px 16px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: enterCard 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.25);
+    }
+
+    @keyframes enterCard {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Memphis Geometric Elements */
+    .memphis-dots {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      width: 44px;
+      height: 44px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.9) 25%, transparent 25%);
+      background-size: 10px 10px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .memphis-chevrons {
+      position: absolute;
+      right: 18px;
+      top: 175px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .chevron {
+      width: 16px;
+      height: 16px;
+      border-right: 4px solid var(--burgundy);
+      border-bottom: 4px solid var(--burgundy);
+      transform: rotate(45deg);
+      border-radius: 1px;
+    }
+
+    /* Header Section */
+    .header-section {
+      padding: 30px 22px 10px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .title-banner {
+      background-color: var(--burgundy);
+      color: var(--white);
+      border: var(--border-thick);
+      border-radius: 8px;
+      padding: 12px 14px;
+      box-shadow: 5px 5px 0px var(--border-dark);
+      position: relative;
+      transform: rotate(-0.5deg);
+      text-align: center;
+      margin: 0 auto;
+      width: 92%;
+    }
+
+    .title-banner h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      line-height: 1.25;
+      text-shadow: 2px 2px 0px var(--burgundy-deep);
+    }
+
+    /* Decorative Teal Cross Marks */
+    .cross-marks {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      color: var(--accent-teal);
+      font-size: 14px;
+      font-weight: 900;
+      text-shadow: 1.5px 1.5px 0 var(--border-dark);
+    }
+
+    /* Retro Film Strip Notches */
+    .film-strip {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .strip-notch {
+      width: 12px;
+      height: 7px;
+      background: var(--burgundy);
+      border: 1.5px solid var(--border-dark);
+      border-top: none;
+      border-radius: 0 0 2px 2px;
+    }
+
+    /* Susun atur Split Bahagian Tengah (Teks di Kiri, Model di Kanan) */
+    .middle-split-section {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 10px 14px 0 18px;
+      min-height: 250px;
+      z-index: 2;
+      overflow: visible;
+    }
+
+    /* Kolum Teks di Sebelah Kiri */
+    .text-column-left {
+      flex: 1.05;
+      padding-bottom: 22px;
+      padding-right: 6px;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sub-bio {
+      margin-top: 0;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--burgundy-dark);
+      line-height: 1.38;
+      text-align: left;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+      position: relative;
+    }
+
+    .sub-bio mark {
+      background: #ffffff;
+      color: var(--burgundy-deep);
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-weight: 900;
+    }
+
+    /* Tag Lencana Retro di Kiri */
+    .badge-kualalumpur {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #ffffff;
+      color: var(--burgundy);
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 3px 9px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      box-shadow: 2.5px 2.5px 0 var(--border-dark);
+      text-transform: uppercase;
+    }
+
+    /* Kolum Model di Sebelah Kanan (Transparent Cutout) */
+    .model-column-right {
+      position: relative;
+      flex: 1.1;
+      height: 260px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      z-index: 3;
+      overflow: visible;
+    }
+
+    .model-backdrop-sun {
+      position: absolute;
+      width: 175px;
+      height: 175px;
+      background: radial-gradient(circle, #ffd466 0%, #f59e0b 80%);
+      border: 3px dashed rgba(255, 255, 255, 0.85);
+      border-radius: 50%;
+      bottom: 8px;
+      right: -8px;
+      z-index: 1;
+    }
+
+    .model-cutout-img {
+      position: relative;
+      z-index: 3;
+      width: 110%;
+      max-width: 235px;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom right;
+      /* Melaraskan warna gambar agar berpadu kemas dengan kuning poster tanpa latar belakang kotak */
+      mix-blend-mode: multiply;
+      filter: contrast(1.18) brightness(1.03) saturate(1.08);
+      transform: scale(1.06);
+      transform-origin: bottom right;
+      pointer-events: none;
+    }
+
+    /* Buih Percakapan Terapung */
+    .speech-bubble {
+      position: absolute;
+      top: 6px;
+      right: 2px;
+      background-color: var(--accent-teal);
+      color: #083344;
+      border: var(--border-thick);
+      border-radius: 50px;
+      padding: 6px 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 3px 3px 0 var(--border-dark);
+      z-index: 6;
+      line-height: 1.15;
+      transform: rotate(6deg);
+      animation: bubbleFloat 3s infinite ease-in-out;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 7px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-teal);
+      border: 2px solid var(--border-dark);
+      border-radius: 50%;
+    }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: rotate(6deg) translateY(0); }
+      50% { transform: rotate(8deg) translateY(-4px); }
+    }
+
+    /* Bottom Section */
+    .bottom-section {
+      background-color: var(--burgundy);
+      color: var(--white);
+      border-top: var(--border-thick);
+      padding: 20px 20px 26px;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .bottom-dots {
+      position: absolute;
+      right: 16px;
+      top: 14px;
+      width: 28px;
+      height: 38px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.8) 25%, transparent 25%);
+      background-size: 8px 8px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* Section Title: LINK PANTAS DBKL */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      font-size: 0.96rem;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      color: var(--retro-yellow);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: "•••";
+      font-size: 11px;
+      color: var(--retro-yellow);
+      letter-spacing: 2px;
+    }
+
+    /* Action Buttons Row */
+    .action-buttons-grid {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+
+    .link-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .link-item:hover, .link-item:active {
+      transform: translateY(-5px) scale(1.06);
+    }
+
+    .btn-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: var(--border-thick);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      color: var(--white);
+      box-shadow: 3.5px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    /* Specific Button Accents */
+    .btn-dbklbayar {
+      background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
+    }
+
+    .btn-paykl {
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .btn-ejpph {
+      background: linear-gradient(145deg, #1f242d 0%, #0c0e12 100%);
+      border-color: #ffffff;
+      box-shadow: 3.5px 4px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
+    }
+    .btn-ejpph i {
+      color: #38ef7d;
+      text-shadow: 0 0 6px rgba(56, 239, 125, 0.6);
+    }
+
+    .link-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    /* Comic Cloud Popup Modal (Awan Komik Retro) Styling */
+    .cloud-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(45, 12, 26, 0.72);
+      backdrop-filter: blur(2.5px);
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .cloud-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .comic-cloud {
+      position: relative;
+      background: #ffffff;
+      border: var(--border-thick);
+      border-radius: 40px;
+      padding: 24px 20px 20px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 7px 7px 0px var(--border-dark);
+      transform: scale(0.7) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .cloud-modal-overlay.active .comic-cloud {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Cloud Puffs / Bumps */
+    .comic-cloud::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 38px;
+      width: 72px;
+      height: 48px;
+      background: #ffffff;
+      border-top: var(--border-thick);
+      border-radius: 50% 50% 0 0;
+      z-index: 1;
+    }
+
+    .comic-cloud::after {
+      content: '';
+      position: absolute;
+      top: -34px;
+      right: 48px;
+      width: 94px;
+      height: 60px;
+      background: #ffffff;
+      border-top: var(--border-thick);
+      border-radius: 50% 50% 0 0;
+      z-index: 1;
+    }
+
+    .cloud-bump-left {
+      position: absolute;
+      left: -20px;
+      top: 36px;
+      width: 44px;
+      height: 64px;
+      background: #ffffff;
+      border-left: var(--border-thick);
+      border-radius: 50% 0 0 50%;
+      z-index: 1;
+    }
+
+    .cloud-bump-right {
+      position: absolute;
+      right: -20px;
+      top: 42px;
+      width: 44px;
+      height: 64px;
+      background: #ffffff;
+      border-right: var(--border-thick);
+      border-radius: 0 50% 50% 0;
+      z-index: 1;
+    }
+
+    /* Small thought cloud bubbles below */
+    .cloud-thought-puff-1 {
+      position: absolute;
+      bottom: -18px;
+      left: 70px;
+      width: 20px;
+      height: 20px;
+      background: #ffffff;
+      border: var(--border-thick);
+      border-radius: 50%;
+      box-shadow: 2.5px 2.5px 0 var(--border-dark);
+    }
+
+    .cloud-thought-puff-2 {
+      position: absolute;
+      bottom: -32px;
+      left: 55px;
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border: 2.5px solid var(--border-dark);
+      border-radius: 50%;
+      box-shadow: 1.5px 1.5px 0 var(--border-dark);
+    }
+
+    /* Thought bubble pointing towards center button for Pay@KL */
+    .cloud-paykl .cloud-thought-puff-1 {
+      left: 145px;
+    }
+    .cloud-paykl .cloud-thought-puff-2 {
+      left: 140px;
+    }
+
+    /* Thought bubble pointing towards right button for eJPPH */
+    .cloud-ejpph .cloud-thought-puff-1 {
+      left: 220px;
+    }
+    .cloud-ejpph .cloud-thought-puff-2 {
+      left: 228px;
+    }
+
+    .cloud-content {
+      position: relative;
+      z-index: 5;
+    }
+
+    .cloud-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #ffe066;
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #501b33;
+      margin-bottom: 8px;
+    }
+
+    .badge-paykl {
+      background: #fbcfe8;
+      color: #831843;
+    }
+
+    .badge-ejpph {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .cloud-message {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.94rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: #1f1f1f;
+      margin-bottom: 14px;
+    }
+
+    .cloud-message mark {
+      background-color: #fde047;
+      color: #701a39;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+
+    .cloud-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cloud-button-group-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .btn-cloud-proceed {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #2563eb;
+      color: #ffffff;
+      border: var(--border-thick);
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.76rem;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--border-dark);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .btn-cloud-proceed:hover {
+      background: #1d4ed8;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--border-dark);
+    }
+
+    .btn-cloud-proceed-magenta {
+      background: linear-gradient(135deg, #e11d48, #be185d);
+    }
+    .btn-cloud-proceed-magenta:hover {
+      background: linear-gradient(135deg, #be123c, #9d174d);
+    }
+
+    .btn-cloud-proceed-emerald {
+      background: linear-gradient(135deg, #059669, #047857);
+    }
+    .btn-cloud-proceed-emerald:hover {
+      background: linear-gradient(135deg, #047857, #065f46);
+    }
+
+    .btn-cloud-subtle {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 2px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 7px 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.72rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      transition: all 0.15s ease;
+    }
+    .btn-cloud-subtle:hover {
+      background: #e2e8f0;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--border-dark);
+    }
+
+    .btn-cloud-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.15s ease;
+      text-decoration: underline;
+    }
+
+    .btn-cloud-close:hover {
+      color: #0f172a;
+    }
+
+    /* Close (X) Corner Button */
+    .cloud-close-corner {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 30px;
+      height: 30px;
+      background: #ef4444;
+      color: #ffffff;
+      border: var(--border-thick);
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      z-index: 10;
+      transition: transform 0.15s ease;
+    }
+
+    .cloud-close-corner:hover {
+      transform: scale(1.1);
+    }
+
+    /* Bottom Main Portal Button */
+    .portal-banner-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background-color: var(--accent-teal);
+      color: #083344;
+      border: var(--border-thick);
+      border-radius: 8px;
+      text-align: center;
+      padding: 11px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.84rem;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 var(--border-dark);
+      transition: all 0.18s ease;
+    }
+
+    .portal-banner-link:hover {
+      background-color: #38bdf8;
+      transform: translate(-1px, -2px);
+      box-shadow: 5px 5px 0 var(--border-dark);
+    }
+
+    .portal-banner-link:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1.5px 1.5px 0 var(--border-dark);
+    }
+
+    /* Hatched Lines Pattern */
+    .hatched-stripe {
+      width: 100%;
+      height: 18px;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+    }
+
+    @media (max-width: 360px) {
+      .biolink-card { border-radius: 34px; border-width: 6px; }
+      .title-banner h1 { font-size: 1.02rem; }
+      .btn-circle { width: 50px; height: 50px; font-size: 19px; }
+      .action-buttons-grid { gap: 8px; }
+      .comic-cloud { padding: 20px 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Retro Memphis Poster Card -->
+  <main class="biolink-card" role="main">
+    
+    <!-- Memphis Background Accents -->
+    <div class="memphis-dots" aria-hidden="true"></div>
+    <div class="memphis-chevrons" aria-hidden="true">
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header-section">
+      <div class="title-banner">
+        <h1>Cukai Taksiran<br>- Pautan Pantas -</h1>
+        <div class="cross-marks" aria-hidden="true">
+          <span>✕</span>
+          <span>✕</span>
+        </div>
+      </div>
+
+      <div class="film-strip" aria-hidden="true">
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+        <div class="strip-notch"></div>
+      </div>
+    </header>
+
+    <!-- Bahagian Tengah Split: Teks di Kiri, Model Tanpa Background di Kanan -->
+    <section class="middle-split-section" aria-label="Pengenalan & Visual">
+      
+      <!-- Kolum Kiri: Ayat Mesra Pengguna -->
+      <div class="text-column-left">
+        <div class="badge-kualalumpur">
+          <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
+        </div>
+
+        <p class="sub-bio">
+          Terima kasih warga kota! Sumbangan <mark>Cukai Taksiran</mark> anda nadi kemakmuran dan keselesaan Kuala Lumpur. Jom selesaikan dengan mudah hari ini!
+        </p>
+
+        <svg class="geo-zigzag" width="38" height="15" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="4" aria-hidden="true">
+          <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Kolum Kanan: Model Penuh Cutout Berpadu dengan Warna Web -->
+      <div class="model-column-right">
+        <div class="model-backdrop-sun" aria-hidden="true"></div>
+        <div class="geo-triangle" style="bottom: 12px; left: -10px;" aria-hidden="true"></div>
+
+        <img 
+          src="WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg" 
+          alt="Model Wanita Hijab Biru Gelap Ceria DBKL" 
+          class="model-cutout-img"
+          onerror="this.onerror=null; this.src='https://placehold.co/400x480/fba92b/6f2647?text=Model+Hijab+DBKL';"
+        />
+
+        <div class="speech-bubble" aria-label="Notis Interaktif">
+          Klik Pautan<br>Di Bawah!
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Bottom Section: LINK PANTAS DBKL -->
+    <footer class="bottom-section">
+      <div class="bottom-dots" aria-hidden="true"></div>
+
+      <!-- Header Title -->
+      <h2 class="section-title">LINK PANTAS DBKL</h2>
+
+      <!-- 3 Quick Action Buttons -->
+      <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
+        
+        <!-- 1. DBKLBayar with Cloud Popup Trigger -->
+        <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="Portal DBKLBayar - Pembayaran Cukai Taksiran">
+          <div class="btn-circle btn-dbklbayar">
+            <i class="fa-solid fa-credit-card"></i>
+          </div>
+          <span class="link-label">DBKLBayar</span>
+        </button>
+
+        <!-- 2. Pay@KL with Cloud Popup Trigger -->
+        <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Aplikasi Pay@KL DBKL Mobis">
+          <div class="btn-circle btn-paykl">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <span class="link-label">Pay@KL</span>
+        </button>
+
+        <!-- 3. eJPPH with Cloud Popup Trigger -->
+        <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="Portal eJPPH DBKL - Penilaian dan Pengurusan Harta">
+          <div class="btn-circle btn-ejpph">
+            <i class="fa-solid fa-house-chimney-window"></i>
+          </div>
+          <span class="link-label">eJPPH</span>
+        </button>
+
+      </nav>
+
+      <!-- Official Portal Link Button -->
+      <a href="https://www.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="portal-banner-link">
+        <i class="fa-solid fa-globe"></i>
+        <span>Portal Rasmi: dbkl.gov.my</span>
+      </a>
+    </footer>
+
+    <!-- Bottom Hatched Texture -->
+    <div class="hatched-stripe" aria-hidden="true"></div>
+
+    <!-- 1. DBKLBayar Comic Cloud Popup Modal -->
+    <div id="cloudModalDBKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleDBKL">
+      <div class="comic-cloud">
+        <!-- Corner Close Button -->
+        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan">✕</button>
+
+        <!-- Cloud Bumps -->
+        <div class="cloud-bump-left" aria-hidden="true"></div>
+        <div class="cloud-bump-right" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
+
+        <div class="cloud-content">
+          <span class="cloud-badge">
+            <i class="fa-solid fa-bell"></i> Makluman Pembayaran
+          </span>
+          <p id="cloudTitleDBKL" class="cloud-message">
+            Layari dan gunakan <mark>e-Bayar</mark> untuk membuat bayaran <strong>Cukai Taksiran</strong>.
+          </p>
+
+          <div class="cloud-actions">
+            <a href="https://dbayar.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed dismiss-on-click">
+              <span>Teruskan ke e-Bayar</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Pay@KL Comic Cloud Popup Modal -->
+    <div id="cloudModalPayKL" class="cloud-modal-overlay cloud-paykl" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePayKL">
+      <div class="comic-cloud">
+        <!-- Corner Close Button -->
+        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan Pay@KL">✕</button>
+
+        <!-- Cloud Bumps -->
+        <div class="cloud-bump-left" aria-hidden="true"></div>
+        <div class="cloud-bump-right" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
+
+        <div class="cloud-content">
+          <span class="cloud-badge badge-paykl">
+            <i class="fa-solid fa-mobile-screen"></i> Aplikasi Mudah Alih
+          </span>
+          <p id="cloudTitlePayKL" class="cloud-message">
+            Muat turun segera aplikasi <mark>Pay@KL</mark> <strong>(Android/iOS)</strong> di perkakasan anda.
+          </p>
+
+          <div class="cloud-actions">
+            <a href="https://mobis.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-magenta dismiss-on-click">
+              <i class="fa-solid fa-cloud-arrow-down"></i>
+              <span>Muat Turun di Mobis</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <div class="cloud-button-group-duo">
+              <a href="https://play.google.com/store/search?q=Pay%40KL+DBKL&c=apps" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
+                <i class="fa-brands fa-google-play"></i> Android
+              </a>
+              <a href="https://apps.apple.com/my/app/pay-kl/id1527311749" target="_blank" rel="noopener noreferrer" class="btn-cloud-subtle dismiss-on-click">
+                <i class="fa-brands fa-apple"></i> iOS
+              </a>
+            </div>
+
+            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. eJPPH Comic Cloud Popup Modal -->
+    <div id="cloudModalEJPPH" class="cloud-modal-overlay cloud-ejpph" role="dialog" aria-modal="true" aria-labelledby="cloudTitleEJPPH">
+      <div class="comic-cloud">
+        <!-- Corner Close Button -->
+        <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan eJPPH">✕</button>
+
+        <!-- Cloud Bumps -->
+        <div class="cloud-bump-left" aria-hidden="true"></div>
+        <div class="cloud-bump-right" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-1" aria-hidden="true"></div>
+        <div class="cloud-thought-puff-2" aria-hidden="true"></div>
+
+        <div class="cloud-content">
+          <span class="cloud-badge badge-ejpph">
+            <i class="fa-solid fa-building-user"></i> Jabatan Penilaian &amp; Pengurusan Harta
+          </span>
+          <p id="cloudTitleEJPPH" class="cloud-message">
+            Kemaskini <mark>pemilikan harta anda</mark>, untuk memudahkan urusan kini dan akan datang.
+          </p>
+
+          <div class="cloud-actions">
+            <a href="https://ejpph.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-emerald dismiss-on-click">
+              <i class="fa-solid fa-house-circle-check"></i>
+              <span>Layari Portal eJPPH</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Cloud Popups Interactivity Script -->
+  <script>
+    (function() {
+      const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
+      const payklTrigger = document.getElementById('btn-paykl-trigger');
+      const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
+      const modalDBKL = document.getElementById('cloudModalDBKL');
+      const modalPayKL = document.getElementById('cloudModalPayKL');
+      const modalEJPPH = document.getElementById('cloudModalEJPPH');
+      const allModals = [modalDBKL, modalPayKL, modalEJPPH];
+
+      function openModal(modal) {
+        closeAllModals();
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }
+
+      function closeAllModals() {
+        allModals.forEach(m => {
+          if (m) m.classList.remove('active');
+        });
+      }
+
+      // 1. Triggers
+      if (dbklTrigger) {
+        dbklTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modalDBKL);
+        });
+      }
+
+      if (payklTrigger) {
+        payklTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modalPayKL);
+        });
+      }
+
+      if (ejpphTrigger) {
+        ejpphTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modalEJPPH);
+        });
+      }
+
+      // 2. Generic close buttons inside all modals
+      document.querySelectorAll('.close-trigger').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeAllModals();
+        });
+      });
+
+      // 3. Close when clicking background backdrop
+      allModals.forEach(modal => {
+        if (modal) {
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+              closeAllModals();
+            }
+          });
+        }
+      });
+
+      // 4. Auto close popup slightly after clicking external proceed links
+      document.querySelectorAll('.dismiss-on-click').forEach(link => {
+        link.addEventListener('click', function() {
+          setTimeout(closeAllModals, 350);
+        });
+      });
+
+      // 5. ESC Key closes any open popup
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
