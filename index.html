@@ -74,11 +74,11 @@
 
     .memphis-dots-right {
       position: absolute;
-      top: 25%;
-      right: 18px;
-      width: 42px;
-      height: 70px;
-      background-image: radial-gradient(rgba(111, 38, 71, 0.3) 25%, transparent 25%);
+      top: 22%;
+      right: 14px;
+      width: 44px;
+      height: 75px;
+      background-image: radial-gradient(rgba(111, 38, 71, 0.28) 25%, transparent 25%);
       background-size: 10px 10px;
       pointer-events: none;
       z-index: 1;
@@ -87,7 +87,7 @@
     .memphis-chevrons {
       position: absolute;
       right: 16px;
-      top: 90px;
+      top: 86px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -104,10 +104,10 @@
       border-radius: 1px;
     }
 
-    /* BAHAGIAN ATAS */
+    /* 1. BAHAGIAN ATAS */
     .header-section {
       width: 100%;
-      padding: clamp(12px, 2.5vh, 22px) 16px 4px;
+      padding: clamp(10px, 2vh, 20px) 16px 2px;
       position: relative;
       z-index: 4;
       display: flex;
@@ -120,7 +120,7 @@
       color: var(--white);
       border: var(--border-thick);
       border-radius: 14px;
-      padding: clamp(10px, 1.8vh, 16px) clamp(16px, 4vw, 36px);
+      padding: clamp(9px, 1.6vh, 15px) clamp(16px, 4vw, 36px);
       box-shadow: 5px 5px 0px var(--border-dark);
       position: relative;
       transform: rotate(-0.4deg);
@@ -130,7 +130,7 @@
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
+      font-size: clamp(1rem, 4vw, 1.4rem);
       font-weight: 900;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -168,80 +168,29 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* BAHAGIAN TENGAH: DIPERLUASKAN SEPENUHNYA */
+    /* 2. BAHAGIAN TENGAH: MODEL DI SEBELAH KIRI */
     .middle-split-section {
       position: relative;
-      flex: 1 1 0;
+      flex: 1 1 auto;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 14px 0 18px;
+      padding: 0 14px 0 0; /* Rapatkan ke tepi kiri skrin */
       z-index: 3;
       overflow: visible;
     }
 
-    /* Kolum Teks: Lebih Besar, Padat & Jelas */
-    .text-column-left {
-      flex: 1.2;
-      padding-bottom: clamp(18px, 4vh, 36px);
-      padding-right: 6px;
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: clamp(10px, 2vh, 18px);
-      max-width: 520px;
-    }
-
-    .badge-kualalumpur {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      color: var(--burgundy-deep);
-      border: 3px solid var(--border-dark);
-      border-radius: 30px;
-      padding: 6px 14px;
-      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark);
-      text-transform: uppercase;
-    }
-
-    .sub-bio {
-      font-size: clamp(1.05rem, 3.6vw, 1.45rem);
-      font-weight: 800;
-      color: var(--burgundy-deep);
-      line-height: 1.38;
-      text-align: left;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
-    }
-
-    .sub-bio mark {
-      background: #ffffff;
-      color: var(--burgundy-deep);
-      border: 2px solid var(--border-dark);
-      padding: 1px 7px;
-      border-radius: 6px;
-      font-weight: 900;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    /* Kolum Model Kanan: Memenuhi Ketinggian Tengah */
-    .model-column-right {
+    /* Kolum Model Kiri (Diperbesarkan & Memenuhi Ruang Kiri) */
+    .model-column-left {
       position: relative;
-      flex: 1.15;
+      flex: 1.25;
       height: 100%;
-      min-height: clamp(340px, 58vh, 620px);
+      min-height: clamp(340px, 52vh, 580px);
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: flex-end;
       z-index: 4;
       overflow: visible;
@@ -249,13 +198,13 @@
 
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(230px, 46vw, 380px);
-      height: clamp(230px, 46vw, 380px);
+      width: clamp(230px, 48vw, 420px);
+      height: clamp(230px, 48vw, 420px);
       background: radial-gradient(circle, #ffe082 0%, #f59e0b 80%);
       border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
       bottom: 0px;
-      right: clamp(-10px, 0.5vw, 15px);
+      left: clamp(-30px, -2vw, -10px);
       z-index: 1;
     }
 
@@ -263,43 +212,45 @@
       position: relative;
       z-index: 3;
       width: 100%;
-      max-width: clamp(270px, 54vw, 480px);
+      max-width: clamp(290px, 58vw, 460px);
       height: auto;
-      max-height: clamp(340px, 60vh, 620px);
+      max-height: clamp(360px, 54vh, 600px);
       object-fit: contain;
-      object-position: bottom right;
+      object-position: bottom left;
       mix-blend-mode: multiply;
-      filter: contrast(1.15) brightness(1.02) saturate(1.06);
+      filter: contrast(1.12) brightness(1.02) saturate(1.05);
       pointer-events: none;
-      transform-origin: bottom right;
+      transform-origin: bottom left;
       margin-bottom: -4px;
+      margin-left: -10px;
     }
 
-    /* Buih Percakapan Terapung Dilaraskan ke Kepala Model */
+    /* Buih Percakapan */
     .speech-bubble {
       position: absolute;
-      top: clamp(10px, 3vh, 35px);
-      right: clamp(10px, 3vw, 35px);
+      top: clamp(10px, 4vh, 45px);
+      left: clamp(120px, 28vw, 220px);
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
       padding: clamp(6px, 1.2vh, 10px) clamp(12px, 3vw, 18px);
-      font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+      font-size: clamp(0.76rem, 2.4vw, 0.92rem);
       font-weight: 900;
       text-align: center;
       box-shadow: 4px 4px 0 var(--border-dark);
       z-index: 6;
       line-height: 1.15;
-      transform: rotate(6deg);
+      transform: rotate(-6deg);
       animation: bubbleFloat 3s infinite ease-in-out;
+      white-space: nowrap;
     }
 
     .speech-bubble::after {
       content: '';
       position: absolute;
       bottom: 2px;
-      left: 8px;
+      left: 12px;
       width: 10px;
       height: 10px;
       background-color: var(--accent-teal);
@@ -308,18 +259,71 @@
     }
 
     @keyframes bubbleFloat {
-      0%, 100% { transform: rotate(6deg) translateY(0); }
-      50% { transform: rotate(8deg) translateY(-5px); }
+      0%, 100% { transform: rotate(-6deg) translateY(0); }
+      50% { transform: rotate(-4deg) translateY(-5px); }
     }
 
-    /* BAHAGIAN BAWAH */
+    /* Kolum Teks Kanan */
+    .text-column-right {
+      flex: 1.05;
+      padding-bottom: clamp(16px, 3.8vh, 32px);
+      padding-left: 8px;
+      padding-right: 8px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: clamp(10px, 1.8vh, 16px);
+      max-width: 480px;
+    }
+
+    .badge-kualalumpur {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #ffffff;
+      color: var(--burgundy-deep);
+      border: 3px solid var(--border-dark);
+      border-radius: 30px;
+      padding: 5px 12px;
+      font-size: clamp(0.72rem, 2.3vw, 0.88rem);
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      box-shadow: 3px 3px 0 var(--border-dark);
+      text-transform: uppercase;
+    }
+
+    .sub-bio {
+      font-size: clamp(0.95rem, 3.2vw, 1.3rem);
+      font-weight: 800;
+      color: var(--burgundy-deep);
+      line-height: 1.35;
+      text-align: left;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .sub-bio mark {
+      background: #ffffff;
+      color: var(--burgundy-deep);
+      border: 2px solid var(--border-dark);
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-weight: 900;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* 3. BAHAGIAN BAWAH */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
-      border-radius: 26px 26px 0 0;
-      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 4vw, 36px) clamp(12px, 2vh, 18px);
+      border-radius: 24px 24px 0 0;
+      padding: clamp(12px, 2vh, 18px) clamp(16px, 4vw, 36px) clamp(12px, 2vh, 18px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
@@ -346,11 +350,11 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.92rem, 3vw, 1.15rem);
+      font-size: clamp(0.88rem, 2.8vw, 1.1rem);
       font-weight: 900;
       letter-spacing: 1px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(10px, 1.6vh, 16px);
+      margin-bottom: clamp(8px, 1.5vh, 14px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -371,7 +375,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(10px, 1.8vh, 16px);
+      margin-bottom: clamp(8px, 1.5vh, 14px);
       gap: 12px;
       width: 100%;
     }
@@ -395,14 +399,14 @@
     }
 
     .btn-circle {
-      width: clamp(52px, 12vw, 68px);
-      height: clamp(52px, 12vw, 68px);
+      width: clamp(50px, 12vw, 66px);
+      height: clamp(50px, 12vw, 66px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(20px, 4.8vw, 26px);
+      font-size: clamp(19px, 4.6vw, 25px);
       color: var(--white);
       box-shadow: 4px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
@@ -427,7 +431,7 @@
     }
 
     .link-label {
-      font-size: clamp(0.72rem, 2.2vw, 0.88rem);
+      font-size: clamp(0.7rem, 2.1vw, 0.85rem);
       font-weight: 800;
       letter-spacing: 0.4px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -444,10 +448,10 @@
       border: var(--border-thick);
       border-radius: 10px;
       text-align: center;
-      padding: clamp(9px, 1.5vh, 12px) 16px;
+      padding: clamp(8px, 1.4vh, 12px) 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+      font-size: clamp(0.76rem, 2.4vw, 0.9rem);
       letter-spacing: 0.4px;
       text-decoration: none;
       box-shadow: 4px 4px 0 var(--border-dark);
@@ -609,11 +613,11 @@
 
     .cloud-message {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       font-weight: 800;
       line-height: 1.35;
       color: #1a1a1a;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
 
     .cloud-message mark {
@@ -733,11 +737,11 @@
 
     @media (min-width: 768px) {
       .middle-split-section {
-        padding: 0 32px;
+        padding: 0 24px;
       }
-      .text-column-left {
-        max-width: 520px;
-        gap: 20px;
+      .text-column-right {
+        max-width: 460px;
+        gap: 18px;
       }
     }
   </style>
@@ -778,8 +782,24 @@
     <!-- 2. BAHAGIAN TENGAH -->
     <section class="middle-split-section" aria-label="Pengenalan & Visual">
       
-      <!-- Kolum Kiri: Teks Penuh & Jelas -->
-      <div class="text-column-left">
+      <!-- Kolum Kiri: Model Wanita Memenuhi Ruang Kiri -->
+      <div class="model-column-left">
+        <div class="model-backdrop-sun" aria-hidden="true"></div>
+
+        <img 
+          src="AC.png" 
+          alt="Model Wanita DBKL" 
+          class="model-cutout-img"
+          onerror="this.onerror=null; this.src='WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg';"
+        />
+
+        <div class="speech-bubble" aria-label="Notis Interaktif">
+          Klik Pautan<br>Di Bawah!
+        </div>
+      </div>
+
+      <!-- Kolum Kanan: Teks & Maklumat -->
+      <div class="text-column-right">
         <div class="badge-kualalumpur">
           <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
         </div>
@@ -791,22 +811,6 @@
         <svg class="geo-zigzag" width="50" height="20" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
           <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </div>
-
-      <!-- Kolum Kanan: Model Wanita Diperbesar Penuh Ruang -->
-      <div class="model-column-right">
-        <div class="model-backdrop-sun" aria-hidden="true"></div>
-
-        <img 
-          src="AC.png" 
-          alt="Model Wanita Hijab Biru Senyum Ceria DBKL" 
-          class="model-cutout-img"
-          onerror="this.onerror=null; this.src='WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg';"
-        />
-
-        <div class="speech-bubble" aria-label="Notis Interaktif">
-          Klik Pautan<br>Di Bawah!
-        </div>
       </div>
 
     </section>
