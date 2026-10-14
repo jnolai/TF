@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Cukai Taksiran - LINK PANTAS DBKL</title>
   
-  <!-- Google Fonts: Montserrat & Space Grotesk -->
+  <!-- Google Fonts: Montserrat, Space Grotesk, Orbitron & Share Tech Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -95,10 +95,10 @@
       border-radius: 1px;
     }
 
-    /* 1. BAHAGIAN ATAS */
+    /* 1. BAHAGIAN ATAS: BANNER */
     .header-section {
       width: 100%;
-      padding: clamp(8px, 1.8vh, 18px) 14px 2px;
+      padding: clamp(6px, 1.4vh, 14px) 14px 2px;
       position: relative;
       z-index: 4;
       display: flex;
@@ -112,7 +112,7 @@
       color: var(--white);
       border: var(--border-thick);
       border-radius: 14px;
-      padding: clamp(8px, 1.5vh, 14px) clamp(14px, 3.5vw, 32px);
+      padding: clamp(7px, 1.3vh, 12px) clamp(14px, 3.5vw, 32px);
       box-shadow: 4px 4px 0px var(--border-dark);
       position: relative;
       transform: rotate(-0.4deg);
@@ -122,7 +122,7 @@
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.95rem, 4vw, 1.35rem);
+      font-size: clamp(0.92rem, 3.8vw, 1.3rem);
       font-weight: 900;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -148,7 +148,7 @@
       display: flex;
       justify-content: center;
       gap: 5px;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     .strip-notch {
@@ -160,7 +160,7 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* 2. BAHAGIAN TENGAH (MODEL KIRI MEMBESAR PENUH RUANG) */
+    /* 2. BAHAGIAN TENGAH */
     .middle-split-section {
       position: relative;
       flex: 1 1 0;
@@ -184,6 +184,113 @@
       align-items: flex-end;
       z-index: 4;
       overflow: visible;
+    }
+
+    /* ========================================================
+       JAM DIGITAL RETRO-TECH DI ATAS KEPALA MODEL
+       ======================================================== */
+    .retro-clock-wrapper {
+      position: absolute;
+      top: clamp(6px, 1.5vh, 18px);
+      left: clamp(8px, 2vw, 20px);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      pointer-events: auto;
+    }
+
+    .retro-clock-box {
+      background: #0d131f;
+      border: var(--border-thick);
+      border-radius: 12px;
+      padding: clamp(6px, 1vh, 8px) clamp(10px, 2vw, 14px);
+      box-shadow: 4px 4px 0px var(--border-dark), 0 0 12px rgba(34, 211, 238, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: clamp(140px, 36vw, 190px);
+      position: relative;
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s ease;
+    }
+
+    .retro-clock-box:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .clock-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-bottom: 1.5px dashed rgba(255, 255, 255, 0.2);
+      padding-bottom: 3px;
+      margin-bottom: 2px;
+    }
+
+    .clock-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.55rem, 1.7vw, 0.65rem);
+      font-weight: 700;
+      color: #38ef7d;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #38ef7d;
+      box-shadow: 0 0 6px #38ef7d;
+      animation: blinkIndicator 1.2s infinite ease-in-out;
+    }
+
+    @keyframes blinkIndicator {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(0.85); }
+    }
+
+    .clock-zone {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.55rem, 1.7vw, 0.65rem);
+      color: var(--accent-teal);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .digital-time-display {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(0.95rem, 3.4vw, 1.32rem);
+      font-weight: 900;
+      color: #fef08a;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+      text-shadow: 0 0 8px rgba(254, 240, 138, 0.6), 2px 2px 0px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .digital-ampm {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(0.55rem, 1.8vw, 0.72rem);
+      font-weight: 800;
+      color: var(--accent-teal);
+      letter-spacing: 0.5px;
+    }
+
+    .digital-date-display {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.6rem, 1.9vw, 0.72rem);
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
     }
 
     .model-backdrop-sun {
@@ -219,8 +326,8 @@
     /* Buih Percakapan */
     .speech-bubble {
       position: absolute;
-      top: clamp(8px, 3vh, 36px);
-      left: clamp(130px, 34vw, 240px);
+      top: clamp(60px, 10vh, 95px);
+      left: clamp(140px, 36vw, 240px);
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
@@ -232,7 +339,7 @@
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
       z-index: 6;
       line-height: 1.15;
-      transform: rotate(-6deg);
+      transform: rotate(-5deg);
       animation: bubbleFloat 3s infinite ease-in-out;
       white-space: nowrap;
     }
@@ -250,8 +357,8 @@
     }
 
     @keyframes bubbleFloat {
-      0%, 100% { transform: rotate(-6deg) translateY(0); }
-      50% { transform: rotate(-4deg) translateY(-5px); }
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(-3deg) translateY(-4px); }
     }
 
     /* Kolum Teks Kanan */
@@ -449,7 +556,7 @@
     }
 
     /* ========================================================
-       MODAL DIALOG: KAWALAN MUTLAK SUPAYA TIDAK BOCOR KE BAWAH
+       MODAL DIALOG: KAWALAN MUTLAK (TIADA LIMPAHAN DI BAWAH)
        ======================================================== */
     .cloud-modal-overlay {
       display: none !important;
@@ -648,6 +755,7 @@
     @media (min-width: 768px) {
       .middle-split-section { padding: 0 20px; }
       .text-column-right { max-width: 440px; }
+      .speech-bubble { top: 90px; left: 220px; }
     }
   </style>
 </head>
@@ -689,6 +797,24 @@
       <!-- Kolum Model Kiri -->
       <div class="model-column-left">
         <div class="model-backdrop-sun" aria-hidden="true"></div>
+
+        <!-- JAM DIGITAL RETRO-TECH DI RUANGAN ATAS KEPALA MODEL -->
+        <aside class="retro-clock-wrapper" aria-label="Waktu Semasa Perkakasan">
+          <div class="retro-clock-box">
+            <div class="clock-top-bar">
+              <span class="clock-status-tag">
+                <span class="live-dot" aria-hidden="true"></span> LIVE
+              </span>
+              <span class="clock-zone">WAKTU KL</span>
+            </div>
+            <div class="digital-time-display" id="digitalClockTime">
+              00:00:00 <span class="digital-ampm">AM</span>
+            </div>
+            <div class="digital-date-display" id="digitalClockDate">
+              ISNIN, 01 JAN 2026
+            </div>
+          </div>
+        </aside>
 
         <img 
           id="modelImage"
@@ -854,7 +980,7 @@
     </div>
   </div>
 
-  <!-- Script Interaktiviti -->
+  <!-- Script Interaktiviti & Jam Digital Real-time -->
   <script>
     // Pengendali fallback jika imej tempatan tiada di GitHub
     function handleImageFallback(img) {
@@ -863,12 +989,54 @@
         img.src = "WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg";
       } else {
         img.onerror = null;
-        // Paparkan ilustrasi SVG sandaran jika kedua-dua imej tiada
         img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 480' width='320' height='480'><path d='M80 480 C80 320, 110 260, 160 260 C210 260, 240 320, 240 480 Z' fill='%235d644d'/><ellipse cx='160' cy='200' rx='45' ry='60' fill='%231f4037'/><ellipse cx='160' cy='195' rx='30' ry='38' fill='%23f3cfb3'/><circle cx='148' cy='190' r='3.5' fill='%23333'/><circle cx='172' cy='190' r='3.5' fill='%23333'/><path d='M150 210 Q160 220 170 210' stroke='%23d97768' stroke-width='3' fill='none' stroke-linecap='round'/></svg>";
       }
     }
 
+    // Fungsi Jam & Tarikh Digital Mengikut Waktu Perkakasan Pengguna
+    function startDigitalClock() {
+      const timeElem = document.getElementById('digitalClockTime');
+      const dateElem = document.getElementById('digitalClockDate');
+
+      const namaHari = ['AHAD', 'ISNIN', 'SELASA', 'RABU', 'KHAMIS', 'JUMAAT', 'SABTU'];
+      const namaBulan = ['JAN', 'FEB', 'MAC', 'APR', 'MEI', 'JUN', 'JUL', 'OGOS', 'SEP', 'OKT', 'NOV', 'DIS'];
+
+      function updateClock() {
+        const now = new Date();
+
+        // Format Masa (12 Jam dengan AM/PM)
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Jam '0' ditukar ke '12'
+        const strHours = String(hours).padStart(2, '0');
+
+        if (timeElem) {
+          timeElem.innerHTML = `${strHours}:${minutes}:${seconds} <span class="digital-ampm">${ampm}</span>`;
+        }
+
+        // Format Tarikh (Hari, DD Bulan YYYY)
+        const dayName = namaHari[now.getDay()];
+        const dayDate = String(now.getDate()).padStart(2, '0');
+        const monthName = namaBulan[now.getMonth()];
+        const fullYear = now.getFullYear();
+
+        if (dateElem) {
+          dateElem.textContent = `${dayName}, ${dayDate} ${monthName} ${fullYear}`;
+        }
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+
+    // Kawalan Modal Pop-Up
     (function() {
+      startDigitalClock();
+
       const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
       const payklTrigger = document.getElementById('btn-paykl-trigger');
       const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
