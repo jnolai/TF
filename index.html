@@ -62,6 +62,18 @@
       max-width: 900px;
     }
 
+    /* Pengendali skrin bersaiz pendek / landskap */
+    @media (max-height: 660px) {
+      .app-viewport {
+        height: auto;
+        min-height: 100dvh;
+        overflow-y: auto;
+      }
+      .middle-split-section {
+        min-height: 280px;
+      }
+    }
+
     /* Memphis Deco */
     .memphis-dots-left {
       position: absolute;
@@ -586,6 +598,7 @@
     .badge-ejpph { background: #d1fae5; color: #065f46; }
     .badge-tng { background: #dbeafe; color: #003b73; }
     .badge-pos { background: #fee2e2; color: #991b1b; }
+    .badge-pbtpay { background: #ffedd5; color: #c2410c; }
 
     .cloud-message {
       font-family: 'Space Grotesk', sans-serif;
@@ -654,6 +667,10 @@
       background: #ed1c24;
     }
 
+    .step-num-pbtpay {
+      background: #ea580c;
+    }
+
     .cloud-actions {
       display: flex;
       flex-direction: column;
@@ -701,6 +718,9 @@
     }
     .btn-cloud-proceed-pos {
       background: linear-gradient(135deg, #ed1c24, #b30c12);
+    }
+    .btn-cloud-proceed-pbtpay {
+      background: linear-gradient(135deg, #ea580c, #c2410c);
     }
 
     .btn-cloud-subtle {
@@ -846,7 +866,7 @@
         <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
           
           <!-- 1. DBKLBayar -->
-          <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar">
+          <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="DBKLBayar">
             <div class="btn-circle btn-dbklbayar">
               <i class="fa-solid fa-credit-card"></i>
             </div>
@@ -854,7 +874,7 @@
           </button>
 
           <!-- 2. Pay@KL -->
-          <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pay@KL">
+          <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="Pay@KL">
             <div class="btn-circle btn-paykl">
               <i class="fa-solid fa-mobile-screen-button"></i>
             </div>
@@ -862,7 +882,7 @@
           </button>
 
           <!-- 3. eJPPH -->
-          <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="eJPPH">
+          <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="eJPPH">
             <div class="btn-circle btn-ejpph">
               <i class="fa-solid fa-house-chimney-window"></i>
             </div>
@@ -870,7 +890,7 @@
           </button>
 
           <!-- 4. TNG -->
-          <button type="button" id="btn-tng-trigger" class="link-item" aria-haspopup="dialog" aria-label="Touch 'n Go eWallet">
+          <button type="button" id="btn-tng-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="Touch 'n Go eWallet">
             <div class="btn-circle btn-tng">
               <i class="fa-solid fa-wallet"></i>
             </div>
@@ -878,7 +898,7 @@
           </button>
 
           <!-- 5. Pos Malaysia -->
-          <button type="button" id="btn-pos-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pos Malaysia Online">
+          <button type="button" id="btn-pos-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="Pos Malaysia Online">
             <div class="btn-circle btn-pos">
               <i class="fa-solid fa-envelope-open-text"></i>
             </div>
@@ -886,12 +906,12 @@
           </button>
 
           <!-- 6. PBTPay -->
-          <a href="https://pbtpay.kpkt.gov.my" target="_blank" rel="noopener noreferrer" class="link-item" aria-label="PBTPay">
+          <button type="button" id="btn-pbtpay-trigger" class="link-item" aria-haspopup="dialog" aria-expanded="false" aria-label="PBTPay Online">
             <div class="btn-circle btn-pbtpay">
               <i class="fa-solid fa-receipt"></i>
             </div>
             <span class="link-label">PBTPay</span>
-          </a>
+          </button>
 
         </nav>
 
@@ -1096,6 +1116,48 @@
     </div>
   </div>
 
+  <!-- Modal PBTPay -->
+  <div id="cloudModalPBTPay" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePBTPay">
+    <div class="comic-cloud">
+      <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
+      <div class="cloud-bump-left" aria-hidden="true"></div>
+      <div class="cloud-bump-right" aria-hidden="true"></div>
+
+      <div class="cloud-content">
+        <span class="cloud-badge badge-pbtpay">
+          <i class="fa-solid fa-receipt"></i> Portal Rasmi PBTPay
+        </span>
+        
+        <p id="cloudTitlePBTPay" class="cloud-message" style="margin-bottom: 8px;">
+          Panduan Bayaran Cukai Taksiran di <mark>PBTPay</mark>:
+        </p>
+
+        <ol class="flow-steps-list">
+          <li class="flow-step-item">
+            <span class="step-num step-num-pbtpay">1</span>
+            <span><strong>Pilih PBT:</strong> Pilih <mark>Wilayah Persekutuan</mark> &gt; <strong>Dewan Bandaraya Kuala Lumpur (DBKL)</strong>.</span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pbtpay">2</span>
+            <span><strong>Cari bil:</strong> Masukkan <mark>Nombor Akaun Taksiran</mark> atau <mark>No. Kad Pengenalan</mark>.</span>
+          </li>
+          <li class="flow-step-item">
+            <span class="step-num step-num-pbtpay">3</span>
+            <span><strong>Semak &amp; bayar:</strong> Sahkan amaun tunggakan, pilih <mark>kaedah bayaran</mark> dan selesaikan transaksi.</span>
+          </li>
+        </ol>
+
+        <div class="cloud-actions">
+          <a href="https://pbtpay.kpkt.gov.my/" target="_blank" rel="noopener noreferrer" class="btn-cloud-proceed btn-cloud-proceed-pbtpay dismiss-on-click">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Teruskan ke Portal PBTPay</span>
+          </a>
+          <button class="btn-cloud-close close-trigger" type="button">Tutup Makluman</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Script Interaktiviti & Pengendali Modal -->
   <script>
     function handleImageFallback(img) {
@@ -1109,70 +1171,57 @@
     }
 
     (function() {
-      const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
-      const payklTrigger = document.getElementById('btn-paykl-trigger');
-      const ejpphTrigger = document.getElementById('btn-ejpph-trigger');
-      const tngTrigger = document.getElementById('btn-tng-trigger');
-      const posTrigger = document.getElementById('btn-pos-trigger');
-      
-      const modalDBKL = document.getElementById('cloudModalDBKL');
-      const modalPayKL = document.getElementById('cloudModalPayKL');
-      const modalEJPPH = document.getElementById('cloudModalEJPPH');
-      const modalTNG = document.getElementById('cloudModalTNG');
-      const modalPos = document.getElementById('cloudModalPos');
-      
-      const allModals = [modalDBKL, modalPayKL, modalEJPPH, modalTNG, modalPos];
+      const modalMapping = {
+        'btn-dbklbayar-trigger': 'cloudModalDBKL',
+        'btn-paykl-trigger': 'cloudModalPayKL',
+        'btn-ejpph-trigger': 'cloudModalEJPPH',
+        'btn-tng-trigger': 'cloudModalTNG',
+        'btn-pos-trigger': 'cloudModalPos',
+        'btn-pbtpay-trigger': 'cloudModalPBTPay'
+      };
 
-      function openModal(modal) {
+      const allModals = Object.values(modalMapping).map(id => document.getElementById(id)).filter(Boolean);
+      let lastTriggerBtn = null;
+
+      function openModal(modal, triggerBtn) {
         closeAllModals();
-        if (modal) {
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
+        if (!modal) return;
+        
+        lastTriggerBtn = triggerBtn;
+        if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'true');
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Fokus ke butang pangkah / close corner
+        const closeBtn = modal.querySelector('.close-trigger');
+        if (closeBtn) closeBtn.focus();
       }
 
       function closeAllModals() {
-        allModals.forEach(m => {
-          if (m) m.classList.remove('active');
-        });
+        allModals.forEach(m => m.classList.remove('active'));
         document.body.style.overflow = '';
+        
+        if (lastTriggerBtn) {
+          lastTriggerBtn.setAttribute('aria-expanded', 'false');
+          lastTriggerBtn.focus();
+          lastTriggerBtn = null;
+        }
       }
 
-      if (dbklTrigger) {
-        dbklTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          openModal(modalDBKL);
-        });
-      }
+      // Tetapkan klik untuk butang pencetus modal
+      Object.entries(modalMapping).forEach(([btnId, modalId]) => {
+        const btn = document.getElementById(btnId);
+        const modal = document.getElementById(modalId);
+        if (btn && modal) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal(modal, btn);
+          });
+        }
+      });
 
-      if (payklTrigger) {
-        payklTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          openModal(modalPayKL);
-        });
-      }
-
-      if (ejpphTrigger) {
-        ejpphTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          openModal(modalEJPPH);
-        });
-      }
-
-      if (tngTrigger) {
-        tngTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          openModal(modalTNG);
-        });
-      }
-
-      if (posTrigger) {
-        posTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          openModal(modalPos);
-        });
-      }
-
+      // Tutup modal melalui butang pangkah atau butang teks tutup
       document.querySelectorAll('.close-trigger').forEach(btn => {
         btn.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -1180,22 +1229,23 @@
         });
       });
 
+      // Tutup modal jika klik pada latar belakang luar (backdrop)
       allModals.forEach(modal => {
-        if (modal) {
-          modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-              closeAllModals();
-            }
-          });
-        }
-      });
-
-      document.querySelectorAll('.dismiss-on-click').forEach(link => {
-        link.addEventListener('click', function() {
-          setTimeout(closeAllModals, 300);
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeAllModals();
+          }
         });
       });
 
+      // Tutup automatik selepas pengguna menekan pautan tindakan
+      document.querySelectorAll('.dismiss-on-click').forEach(link => {
+        link.addEventListener('click', function() {
+          setTimeout(closeAllModals, 350);
+        });
+      });
+
+      // Tutup melalui kekunci ESC
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           closeAllModals();
