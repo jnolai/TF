@@ -321,46 +321,63 @@
       margin-left: -6px;
     }
 
-    .speech-bubble {
+    /* ========================================================
+       BUIH PENUNJUK "KLIK PAUTAN DI BAWAH!" STRATEGIK & KEMAS
+       ======================================================== */
+    .callout-action-indicator {
       position: absolute;
-      top: clamp(60px, 10vh, 95px);
-      left: clamp(140px, 36vw, 240px);
-      background-color: var(--accent-teal);
+      bottom: clamp(6px, 1.4vh, 16px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      pointer-events: none;
+      animation: indicatorBounce 2s infinite ease-in-out;
+      width: max-content;
+    }
+
+    .indicator-pill {
+      background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 100%);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: 5px 12px;
+      padding: clamp(5px, 0.9vh, 7px) clamp(14px, 3.6vw, 22px);
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(0.72rem, 2.3vw, 0.88rem);
       font-weight: 900;
-      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       box-shadow: 3.5px 3.5px 0 var(--border-dark);
-      z-index: 6;
-      line-height: 1.15;
-      transform: rotate(-5deg);
-      animation: bubbleFloat 3s infinite ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       white-space: nowrap;
     }
 
-    .speech-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: 10px;
-      width: 9px;
-      height: 9px;
-      background-color: var(--accent-teal);
-      border: 2px solid var(--border-dark);
-      border-radius: 50%;
+    .indicator-arrow {
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 8px solid var(--border-dark);
+      margin-top: -1px;
     }
 
-    @keyframes bubbleFloat {
-      0%, 100% { transform: rotate(-5deg) translateY(0); }
-      50% { transform: rotate(-3deg) translateY(-4px); }
+    @keyframes indicatorBounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(5px);
+      }
     }
 
     .text-column-right {
       flex: 1.05;
-      padding-bottom: clamp(14px, 3vh, 26px);
+      padding-bottom: clamp(22px, 4.5vh, 36px);
       padding-left: 4px;
       padding-right: 8px;
       z-index: 5;
@@ -453,7 +470,7 @@
       letter-spacing: 2px;
     }
 
-    /* GRID 6 IKON: DIBESARKAN & DISELARASKAN SECARA DINAMIK */
+    /* GRID 6 IKON: DISUSUN KEMAS & DINAMIK */
     .action-buttons-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -483,7 +500,7 @@
       transform: translateY(-3px) scale(1.05);
     }
 
-    /* BULATAN IKON DIBESARKAN SUPAYA LEBIH JELAS & MESRA SENTUHAN */
+    /* BULATAN IKON BESAR & SELESA SENTUHAN */
     .btn-circle {
       width: clamp(52px, 13.5vw, 68px);
       height: clamp(52px, 13.5vw, 68px);
@@ -499,7 +516,6 @@
       flex-shrink: 0;
     }
 
-    /* Gaya Kecerunan Butang */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -546,7 +562,6 @@
       color: #ffffff;
     }
 
-    /* LABEL TEKS DIBESARKAN UNTUK KETERBACAAN */
     .link-label {
       font-size: clamp(0.72rem, 2.3vw, 0.88rem);
       font-weight: 800;
@@ -866,7 +881,6 @@
     @media (min-width: 768px) {
       .middle-split-section { padding: 0 20px; }
       .text-column-right { max-width: 440px; }
-      .speech-bubble { top: 90px; left: 220px; }
       .btn-circle {
         width: 66px;
         height: 66px;
@@ -874,6 +888,10 @@
       }
       .link-label {
         font-size: 0.84rem;
+      }
+      .indicator-pill {
+        font-size: 0.86rem;
+        padding: 7px 22px;
       }
     }
   </style>
@@ -892,7 +910,7 @@
     <!-- 1. BAHAGIAN ATAS -->
     <header class="header-section">
       <div class="title-banner">
-        <h1>CUKAI TAKSIRAN - PAUTAN PANTAS</h1>
+        <h1>CUKAI TAKSIRAN DBKL</h1>
         <div class="cross-marks" aria-hidden="true">
           <span>✕</span>
           <span>✕</span>
@@ -942,10 +960,15 @@
           class="model-cutout-img"
           onerror="handleImageFallback(this)"
         />
+      </div>
 
-        <div class="speech-bubble" aria-label="Notis Interaktif">
-          Klik Pautan<br>Di Bawah!
+      <!-- PENUNJUK TINDAKAN TENGAH-BAWAH DENGAN ANAK PANAH MELANTUN -->
+      <div class="callout-action-indicator" aria-label="Panduan Pengguna">
+        <div class="indicator-pill">
+          <i class="fa-solid fa-hand-pointer" style="transform: rotate(90deg); color: #083344;"></i>
+          <span>Klik Pautan Di Bawah!</span>
         </div>
+        <div class="indicator-arrow" aria-hidden="true"></div>
       </div>
 
       <!-- Kolum Teks Kanan -->
