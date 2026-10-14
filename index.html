@@ -416,7 +416,7 @@
       color: var(--white);
       border-top: var(--border-thick);
       border-radius: 22px 22px 0 0;
-      padding: clamp(8px, 1.5vh, 14px) clamp(12px, 3.5vw, 26px) clamp(8px, 1.5vh, 14px);
+      padding: clamp(8px, 1.5vh, 14px) clamp(12px, 3.5vw, 26px) clamp(6px, 1.2vh, 10px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.25);
@@ -453,7 +453,7 @@
       letter-spacing: 2px;
     }
 
-    /* Grid 6 Ikon: 3 Lajur x 2 Baris */
+    /* Grid 6 Ikon */
     .action-buttons-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -496,7 +496,6 @@
       transition: all 0.2s ease;
     }
 
-    /* Gaya Butang Tindakan */
     .btn-dbklbayar {
       background: linear-gradient(135deg, #1877f2 0%, #0d47a1 100%);
     }
@@ -524,7 +523,6 @@
       color: #ffd166;
     }
 
-    /* Pos Malaysia: Warna Korporat Merah Terang & Biru Gelap Pos */
     .btn-pos {
       background: linear-gradient(135deg, #ed1c24 0%, #b30c12 55%, #002d62 100%);
       border-color: #ffffff;
@@ -581,6 +579,25 @@
     .portal-banner-link:active {
       transform: translate(2px, 2px);
       box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    /* TEKS HAKCIPTA KECIL SEBELAH KANAN FOOTER */
+    .footer-copyright-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      margin-top: 6px;
+      padding-right: 2px;
+    }
+
+    .footer-copyright-right span {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.55rem, 1.6vw, 0.65rem);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.6px;
+      user-select: none;
     }
 
     /* ========================================================
@@ -691,7 +708,7 @@
       border-radius: 4px;
     }
 
-    /* Senarai Langkah Panduan Modal */
+    /* Senarai Langkah Panduan */
     .flow-steps-list {
       list-style: none;
       padding: 0;
@@ -933,7 +950,7 @@
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: FOOTER & 6 BUTANG TINDAKAN -->
+    <!-- 3. BAHAGIAN BAWAH: FOOTER, 6 BUTANG & HAKCIPTA -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         
@@ -965,7 +982,7 @@
             <span class="link-label">eJPPH</span>
           </button>
 
-          <!-- 4. TNG (Membuka Pop Up Awan TNG) -->
+          <!-- 4. TNG -->
           <button type="button" id="btn-tng-trigger" class="link-item" aria-haspopup="dialog" aria-label="Touch 'n Go eWallet">
             <div class="btn-circle btn-tng">
               <i class="fa-solid fa-wallet"></i>
@@ -973,7 +990,7 @@
             <span class="link-label">TNG</span>
           </button>
 
-          <!-- 5. Pos Malaysia (Membuka Pop Up Awan Pos Online) -->
+          <!-- 5. Pos Malaysia -->
           <button type="button" id="btn-pos-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pos Malaysia Online">
             <div class="btn-circle btn-pos">
               <i class="fa-solid fa-envelope-open-text"></i>
@@ -995,6 +1012,12 @@
           <i class="fa-solid fa-globe"></i>
           <span>Portal Rasmi: dbkl.gov.my</span>
         </a>
+
+        <!-- TEKS HAKCIPTA SEBELAH KANAN -->
+        <div class="footer-copyright-right">
+          <span>Hakcipta &copy;JnolAi@2026</span>
+        </div>
+
       </div>
     </footer>
 
@@ -1136,7 +1159,7 @@
     </div>
   </div>
 
-  <!-- Modal Pos Malaysia Baharu -->
+  <!-- Modal Pos Malaysia -->
   <div id="cloudModalPos" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePos">
     <div class="comic-cloud">
       <button class="cloud-close-corner close-trigger" aria-label="Tutup">✕</button>
