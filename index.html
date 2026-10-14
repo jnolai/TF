@@ -78,7 +78,7 @@
     .memphis-chevrons {
       position: absolute;
       right: 14px;
-      top: 75px;
+      top: 92px;
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -187,16 +187,17 @@
     }
 
     /* ========================================================
-       JAM DIGITAL RETRO-TECH DI ATAS KEPALA MODEL
+       JAM DIGITAL RETRO-TECH DI SEBELAH KANAN
        ======================================================== */
     .retro-clock-wrapper {
       position: absolute;
       top: clamp(6px, 1.5vh, 18px);
-      left: clamp(8px, 2vw, 20px);
+      right: clamp(10px, 2.5vw, 22px);
+      left: auto;
       z-index: 8;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       pointer-events: auto;
     }
 
@@ -211,7 +212,7 @@
       gap: 3px;
       min-width: clamp(140px, 36vw, 190px);
       position: relative;
-      transform: rotate(-1.5deg);
+      transform: rotate(1.5deg);
       transition: transform 0.2s ease;
     }
 
@@ -556,7 +557,7 @@
     }
 
     /* ========================================================
-       MODAL DIALOG: KAWALAN MUTLAK (TIADA LIMPAHAN DI BAWAH)
+       MODAL DIALOG
        ======================================================== */
     .cloud-modal-overlay {
       display: none !important;
@@ -794,30 +795,30 @@
     <!-- 2. BAHAGIAN TENGAH: MODEL KIRI & TEKS KANAN -->
     <section class="middle-split-section" aria-label="Pengenalan & Visual">
       
+      <!-- JAM DIGITAL RETRO-TECH DI SEBELAH KANAN -->
+      <aside class="retro-clock-wrapper" aria-label="Waktu Semasa Perkakasan">
+        <div class="retro-clock-box">
+          <div class="clock-top-bar">
+            <span class="clock-status-tag">
+              <span class="live-dot" aria-hidden="true"></span> LIVE
+            </span>
+            <span class="clock-zone">WAKTU KL</span>
+          </div>
+          <div class="digital-time-display" id="digitalClockTime">
+            00:00:00 <span class="digital-ampm">AM</span>
+          </div>
+          <div class="digital-date-display" id="digitalClockDate">
+            ISNIN, 01 JAN 2026
+          </div>
+        </div>
+      </aside>
+
       <!-- Kolum Model Kiri -->
       <div class="model-column-left">
         <div class="model-backdrop-sun" aria-hidden="true"></div>
 
-        <!-- JAM DIGITAL RETRO-TECH DI RUANGAN ATAS KEPALA MODEL -->
-        <aside class="retro-clock-wrapper" aria-label="Waktu Semasa Perkakasan">
-          <div class="retro-clock-box">
-            <div class="clock-top-bar">
-              <span class="clock-status-tag">
-                <span class="live-dot" aria-hidden="true"></span> LIVE
-              </span>
-              <span class="clock-zone">WAKTU KL</span>
-            </div>
-            <div class="digital-time-display" id="digitalClockTime">
-              00:00:00 <span class="digital-ampm">AM</span>
-            </div>
-            <div class="digital-date-display" id="digitalClockDate">
-              ISNIN, 01 JAN 2026
-            </div>
-          </div>
-        </aside>
-
         <img 
-          id="modelImage"
+          id="modelImage" 
           src="AC.png" 
           alt="Model Wanita DBKL" 
           class="model-cutout-img"
@@ -887,7 +888,7 @@
   </main>
 
   <!-- ==============================================
-       MODALS DIALOG TERSEMBUNYI (DI LUAR DOKUMEN ALIRAN)
+       MODALS DIALOG TERSEMBUNYI
        ============================================== -->
 
   <!-- Modal DBKLBayar -->
@@ -982,7 +983,6 @@
 
   <!-- Script Interaktiviti & Jam Digital Real-time -->
   <script>
-    // Pengendali fallback jika imej tempatan tiada di GitHub
     function handleImageFallback(img) {
       if (!img.dataset.triedBackup) {
         img.dataset.triedBackup = "true";
@@ -993,7 +993,6 @@
       }
     }
 
-    // Fungsi Jam & Tarikh Digital Mengikut Waktu Perkakasan Pengguna
     function startDigitalClock() {
       const timeElem = document.getElementById('digitalClockTime');
       const dateElem = document.getElementById('digitalClockDate');
@@ -1004,21 +1003,19 @@
       function updateClock() {
         const now = new Date();
 
-        // Format Masa (12 Jam dengan AM/PM)
         let hours = now.getHours();
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
         const ampm = hours >= 12 ? 'PM' : 'AM';
 
         hours = hours % 12;
-        hours = hours ? hours : 12; // Jam '0' ditukar ke '12'
+        hours = hours ? hours : 12;
         const strHours = String(hours).padStart(2, '0');
 
         if (timeElem) {
           timeElem.innerHTML = `${strHours}:${minutes}:${seconds} <span class="digital-ampm">${ampm}</span>`;
         }
 
-        // Format Tarikh (Hari, DD Bulan YYYY)
         const dayName = namaHari[now.getDay()];
         const dayDate = String(now.getDate()).padStart(2, '0');
         const monthName = namaBulan[now.getMonth()];
@@ -1033,7 +1030,6 @@
       setInterval(updateClock, 1000);
     }
 
-    // Kawalan Modal Pop-Up
     (function() {
       startDigitalClock();
 
