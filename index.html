@@ -48,7 +48,6 @@
       position: relative;
     }
 
-    /* Bekas Utama Memenuhi Seluruh Skrin Perkakasan (Full Viewport) */
     .app-viewport {
       width: 100vw;
       min-height: 100vh;
@@ -61,7 +60,6 @@
       margin: 0 auto;
     }
 
-    /* Elemen Hiasan Memphis di Skrin Penuh */
     .memphis-dots-left {
       position: absolute;
       top: 14px;
@@ -106,10 +104,10 @@
       border-radius: 1px;
     }
 
-    /* BAHAGIAN ATAS: Banner Tajuk Retro */
+    /* BAHAGIAN ATAS */
     .header-section {
       width: 100%;
-      padding: clamp(14px, 3vh, 26px) 16px 8px;
+      padding: clamp(12px, 2.5vh, 22px) 16px 4px;
       position: relative;
       z-index: 4;
       display: flex;
@@ -121,18 +119,18 @@
       background-color: var(--burgundy);
       color: var(--white);
       border: var(--border-thick);
-      border-radius: 12px;
-      padding: clamp(10px, 1.8vh, 15px) clamp(16px, 4vw, 36px);
+      border-radius: 14px;
+      padding: clamp(10px, 1.8vh, 16px) clamp(16px, 4vw, 36px);
       box-shadow: 5px 5px 0px var(--border-dark);
       position: relative;
       transform: rotate(-0.4deg);
       text-align: center;
-      width: min(92%, 620px);
+      width: min(94%, 620px);
     }
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
       font-weight: 900;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -170,73 +168,78 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* BAHAGIAN TENGAH: Split Layout Seimbang (Kiri: Teks, Kanan: Model Ceria) */
+    /* BAHAGIAN TENGAH: DIPERLUASKAN SEPENUHNYA */
     .middle-split-section {
       position: relative;
-      flex: 1 1 auto;
+      flex: 1 1 0;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      width: min(100%, 820px);
+      width: 100%;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 6px 14px 0 18px;
+      padding: 0 14px 0 18px;
       z-index: 3;
       overflow: visible;
     }
 
-    /* Kolum Teks di Kiri */
+    /* Kolum Teks: Lebih Besar, Padat & Jelas */
     .text-column-left {
-      flex: 1.15;
-      padding-bottom: clamp(14px, 3.5vh, 28px);
-      padding-right: 8px;
+      flex: 1.2;
+      padding-bottom: clamp(18px, 4vh, 36px);
+      padding-right: 6px;
       z-index: 5;
       display: flex;
       flex-direction: column;
-      gap: clamp(8px, 1.6vh, 14px);
-      max-width: 440px;
+      justify-content: flex-end;
+      gap: clamp(10px, 2vh, 18px);
+      max-width: 520px;
     }
 
     .badge-kualalumpur {
       align-self: flex-start;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: #ffffff;
-      color: var(--burgundy);
-      border: 2.5px solid var(--border-dark);
-      border-radius: 20px;
-      padding: 4px 11px;
-      font-size: clamp(0.68rem, 2vw, 0.78rem);
+      color: var(--burgundy-deep);
+      border: 3px solid var(--border-dark);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
       font-weight: 900;
-      letter-spacing: 0.5px;
-      box-shadow: 3px 3px 0 var(--border-dark);
+      letter-spacing: 0.6px;
+      box-shadow: 3.5px 3.5px 0 var(--border-dark);
       text-transform: uppercase;
     }
 
     .sub-bio {
-      font-size: clamp(0.85rem, 2.6vw, 1.08rem);
+      font-size: clamp(1.05rem, 3.6vw, 1.45rem);
       font-weight: 800;
-      color: var(--burgundy-dark);
-      line-height: 1.4;
+      color: var(--burgundy-deep);
+      line-height: 1.38;
       text-align: left;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
 
     .sub-bio mark {
       background: #ffffff;
       color: var(--burgundy-deep);
-      padding: 1px 5px;
-      border-radius: 4px;
+      border: 2px solid var(--border-dark);
+      padding: 1px 7px;
+      border-radius: 6px;
       font-weight: 900;
-      box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+      display: inline-block;
+      white-space: nowrap;
     }
 
-    /* Kolum Model di Kanan (Adunan Lancar Tanpa Kotak) */
+    /* Kolum Model Kanan: Memenuhi Ketinggian Tengah */
     .model-column-right {
       position: relative;
-      flex: 1.05;
+      flex: 1.15;
       height: 100%;
-      min-height: clamp(240px, 42vh, 420px);
+      min-height: clamp(340px, 58vh, 620px);
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -246,13 +249,13 @@
 
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(160px, 32vw, 260px);
-      height: clamp(160px, 32vw, 260px);
+      width: clamp(230px, 46vw, 380px);
+      height: clamp(230px, 46vw, 380px);
       background: radial-gradient(circle, #ffe082 0%, #f59e0b 80%);
-      border: 3.5px dashed rgba(255, 255, 255, 0.9);
+      border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
-      bottom: 4px;
-      right: clamp(-6px, 1vw, 10px);
+      bottom: 0px;
+      right: clamp(-10px, 0.5vw, 15px);
       z-index: 1;
     }
 
@@ -260,31 +263,32 @@
       position: relative;
       z-index: 3;
       width: 100%;
-      max-width: clamp(210px, 42vw, 360px);
+      max-width: clamp(270px, 54vw, 480px);
       height: auto;
-      max-height: clamp(250px, 48vh, 440px);
+      max-height: clamp(340px, 60vh, 620px);
       object-fit: contain;
       object-position: bottom right;
       mix-blend-mode: multiply;
       filter: contrast(1.15) brightness(1.02) saturate(1.06);
       pointer-events: none;
       transform-origin: bottom right;
+      margin-bottom: -4px;
     }
 
-    /* Buih Percakapan Terapung */
+    /* Buih Percakapan Terapung Dilaraskan ke Kepala Model */
     .speech-bubble {
       position: absolute;
-      top: clamp(4px, 2vh, 18px);
-      right: clamp(4px, 2vw, 20px);
+      top: clamp(10px, 3vh, 35px);
+      right: clamp(10px, 3vw, 35px);
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: clamp(5px, 1vh, 8px) clamp(10px, 2.5vw, 16px);
-      font-size: clamp(0.72rem, 2.2vw, 0.86rem);
-      font-weight: 800;
+      padding: clamp(6px, 1.2vh, 10px) clamp(12px, 3vw, 18px);
+      font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+      font-weight: 900;
       text-align: center;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark);
+      box-shadow: 4px 4px 0 var(--border-dark);
       z-index: 6;
       line-height: 1.15;
       transform: rotate(6deg);
@@ -296,8 +300,8 @@
       position: absolute;
       bottom: 2px;
       left: 8px;
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       background-color: var(--accent-teal);
       border: 2px solid var(--border-dark);
       border-radius: 50%;
@@ -305,17 +309,17 @@
 
     @keyframes bubbleFloat {
       0%, 100% { transform: rotate(6deg) translateY(0); }
-      50% { transform: rotate(8deg) translateY(-4px); }
+      50% { transform: rotate(8deg) translateY(-5px); }
     }
 
-    /* BAHAGIAN BAWAH: Panel Burgundy LINK PANTAS DBKL Melekat di Bawah */
+    /* BAHAGIAN BAWAH */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
-      border-radius: 28px 28px 0 0;
-      padding: clamp(14px, 2.4vh, 22px) clamp(16px, 4vw, 36px) clamp(14px, 2.2vh, 20px);
+      border-radius: 26px 26px 0 0;
+      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 4vw, 36px) clamp(12px, 2vh, 18px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
@@ -346,7 +350,7 @@
       font-weight: 900;
       letter-spacing: 1px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(12px, 1.8vh, 18px);
+      margin-bottom: clamp(10px, 1.6vh, 16px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -363,12 +367,11 @@
       letter-spacing: 2px;
     }
 
-    /* Butang Pantas 3 Bulat */
     .action-buttons-grid {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(12px, 2vh, 18px);
+      margin-bottom: clamp(10px, 1.8vh, 16px);
       gap: 12px;
       width: 100%;
     }
@@ -392,14 +395,14 @@
     }
 
     .btn-circle {
-      width: clamp(54px, 13vw, 70px);
-      height: clamp(54px, 13vw, 70px);
+      width: clamp(52px, 12vw, 68px);
+      height: clamp(52px, 12vw, 68px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(21px, 5vw, 28px);
+      font-size: clamp(20px, 4.8vw, 26px);
       color: var(--white);
       box-shadow: 4px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
@@ -430,7 +433,6 @@
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
     }
 
-    /* Pautan Jalur Utama Portal Rasmi DBKL */
     .portal-banner-link {
       display: flex;
       align-items: center;
@@ -442,7 +444,7 @@
       border: var(--border-thick);
       border-radius: 10px;
       text-align: center;
-      padding: clamp(9px, 1.6vh, 12px) 16px;
+      padding: clamp(9px, 1.5vh, 12px) 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       font-size: clamp(0.78rem, 2.5vw, 0.92rem);
@@ -463,7 +465,7 @@
       box-shadow: 2px 2px 0 var(--border-dark);
     }
 
-    /* MODAL POP-UP AWAN KOMIK RETRO */
+    /* MODAL POP-UP */
     .cloud-modal-overlay {
       position: fixed;
       inset: 0;
@@ -729,27 +731,21 @@
     }
     .cloud-close-corner:hover { transform: scale(1.1); }
 
-    /* Penyesuaian Responsif Tablet & Desktop */
     @media (min-width: 768px) {
       .middle-split-section {
-        padding: 10px 32px 0 32px;
+        padding: 0 32px;
       }
       .text-column-left {
-        max-width: 480px;
-        gap: 14px;
-      }
-      .sub-bio {
-        font-size: 1.15rem;
+        max-width: 520px;
+        gap: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Aplikasi Penuh Memenuhi Skrin Perkakasan (100vw, 100dvh) -->
   <main class="app-viewport" role="main">
     
-    <!-- Elemen Grafik Memphis Latar Belakang -->
     <div class="memphis-dots-left" aria-hidden="true"></div>
     <div class="memphis-dots-right" aria-hidden="true"></div>
     <div class="memphis-chevrons" aria-hidden="true">
@@ -758,7 +754,7 @@
       <div class="chevron"></div>
     </div>
 
-    <!-- 1. BAHAGIAN ATAS: Banner Tajuk Retro -->
+    <!-- 1. BAHAGIAN ATAS -->
     <header class="header-section">
       <div class="title-banner">
         <h1>CUKAI TAKSIRAN - PAUTAN PANTAS</h1>
@@ -779,10 +775,10 @@
       </div>
     </header>
 
-    <!-- 2. BAHAGIAN TENGAH: Split Layout Seimbang -->
+    <!-- 2. BAHAGIAN TENGAH -->
     <section class="middle-split-section" aria-label="Pengenalan & Visual">
       
-      <!-- Kolum Kiri: Teks Penghargaan & Lencana -->
+      <!-- Kolum Kiri: Teks Penuh & Jelas -->
       <div class="text-column-left">
         <div class="badge-kualalumpur">
           <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
@@ -792,12 +788,12 @@
           Terima kasih warga kota! Sumbangan <mark>Cukai Taksiran</mark> anda nadi kemakmuran dan keselesaan Kuala Lumpur. Jom selesaikan dengan mudah hari ini!
         </p>
 
-        <svg class="geo-zigzag" width="42" height="16" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="4.5" aria-hidden="true">
+        <svg class="geo-zigzag" width="50" height="20" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
           <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
-      <!-- Kolum Kanan: Model Wanita Hijab Ceria (Adunan Tanpa Kotak) -->
+      <!-- Kolum Kanan: Model Wanita Diperbesar Penuh Ruang -->
       <div class="model-column-right">
         <div class="model-backdrop-sun" aria-hidden="true"></div>
 
@@ -815,18 +811,15 @@
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH: Panel Burgundy LINK PANTAS DBKL -->
+    <!-- 3. BAHAGIAN BAWAH -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         <div class="bottom-dots" aria-hidden="true"></div>
 
-        <!-- Tajuk Seksyen -->
         <h2 class="section-title">LINK PANTAS DBKL</h2>
 
-        <!-- 3 Butang Pantas Bulat Berinteraksi Pop-up Awan Komik -->
         <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
           
-          <!-- 1. DBKLBayar -->
           <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar - Pembayaran Cukai Taksiran">
             <div class="btn-circle btn-dbklbayar">
               <i class="fa-solid fa-credit-card"></i>
@@ -834,7 +827,6 @@
             <span class="link-label">DBKLBayar</span>
           </button>
 
-          <!-- 2. Pay@KL -->
           <button type="button" id="btn-paykl-trigger" class="link-item" aria-haspopup="dialog" aria-label="Pay@KL - Aplikasi Mudah Alih DBKL">
             <div class="btn-circle btn-paykl">
               <i class="fa-solid fa-mobile-screen-button"></i>
@@ -842,7 +834,6 @@
             <span class="link-label">Pay@KL</span>
           </button>
 
-          <!-- 3. eJPPH -->
           <button type="button" id="btn-ejpph-trigger" class="link-item" aria-haspopup="dialog" aria-label="eJPPH - Penilaian dan Pengurusan Harta">
             <div class="btn-circle btn-ejpph">
               <i class="fa-solid fa-house-chimney-window"></i>
@@ -852,7 +843,6 @@
 
         </nav>
 
-        <!-- Pautan Utama Bawah: Portal Rasmi DBKL -->
         <a href="https://www.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="portal-banner-link">
           <i class="fa-solid fa-globe"></i>
           <span>Portal Rasmi: dbkl.gov.my</span>
@@ -860,7 +850,7 @@
       </div>
     </footer>
 
-    <!-- 1. DBKLBayar Comic Cloud Modal -->
+    <!-- Modals -->
     <div id="cloudModalDBKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleDBKL">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan">✕</button>
@@ -888,7 +878,6 @@
       </div>
     </div>
 
-    <!-- 2. Pay@KL Comic Cloud Modal -->
     <div id="cloudModalPayKL" class="cloud-modal-overlay cloud-paykl" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePayKL">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan Pay@KL">✕</button>
@@ -927,7 +916,6 @@
       </div>
     </div>
 
-    <!-- 3. eJPPH Comic Cloud Modal -->
     <div id="cloudModalEJPPH" class="cloud-modal-overlay cloud-ejpph" role="dialog" aria-modal="true" aria-labelledby="cloudTitleEJPPH">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan eJPPH">✕</button>
@@ -958,7 +946,6 @@
 
   </main>
 
-  <!-- Skrip Interaktiviti Pop-up Awan Komik -->
   <script>
     (function() {
       const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
@@ -982,7 +969,6 @@
         });
       }
 
-      // Butang Pencetus Pop-up
       if (dbklTrigger) {
         dbklTrigger.addEventListener('click', function(e) {
           e.preventDefault();
@@ -1004,7 +990,6 @@
         });
       }
 
-      // Butang Tutup (✕ dan teks tutup)
       document.querySelectorAll('.close-trigger').forEach(btn => {
         btn.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -1012,7 +997,6 @@
         });
       });
 
-      // Tutup bila klik di luar modal (backdrop)
       allModals.forEach(modal => {
         if (modal) {
           modal.addEventListener('click', function(e) {
@@ -1023,14 +1007,12 @@
         }
       });
 
-      // Tutup automatik sedikit masa selepas klik pautan ke luar
       document.querySelectorAll('.dismiss-on-click').forEach(link => {
         link.addEventListener('click', function() {
           setTimeout(closeAllModals, 350);
         });
       });
 
-      // Kekunci Escape untuk tutup
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           closeAllModals();
