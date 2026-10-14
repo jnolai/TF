@@ -50,8 +50,8 @@
 
     .app-viewport {
       width: 100vw;
-      min-height: 100vh;
-      min-height: 100dvh;
+      height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -74,10 +74,10 @@
 
     .memphis-dots-right {
       position: absolute;
-      top: 25%;
-      right: 18px;
+      top: 18%;
+      right: 14px;
       width: 42px;
-      height: 70px;
+      height: 80px;
       background-image: radial-gradient(rgba(111, 38, 71, 0.3) 25%, transparent 25%);
       background-size: 10px 10px;
       pointer-events: none;
@@ -87,7 +87,7 @@
     .memphis-chevrons {
       position: absolute;
       right: 16px;
-      top: 90px;
+      top: 80px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -104,15 +104,16 @@
       border-radius: 1px;
     }
 
-    /* BAHAGIAN ATAS */
+    /* 1. BAHAGIAN ATAS */
     .header-section {
       width: 100%;
-      padding: clamp(12px, 2.5vh, 22px) 16px 4px;
+      padding: clamp(8px, 1.8vh, 16px) 16px 4px;
       position: relative;
-      z-index: 4;
+      z-index: 6;
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-shrink: 0;
     }
 
     .title-banner {
@@ -120,17 +121,17 @@
       color: var(--white);
       border: var(--border-thick);
       border-radius: 14px;
-      padding: clamp(10px, 1.8vh, 16px) clamp(16px, 4vw, 36px);
-      box-shadow: 5px 5px 0px var(--border-dark);
+      padding: clamp(8px, 1.4vh, 12px) clamp(16px, 4vw, 32px);
+      box-shadow: 4px 4px 0px var(--border-dark);
       position: relative;
-      transform: rotate(-0.4deg);
+      transform: rotate(-0.3deg);
       text-align: center;
-      width: min(94%, 620px);
+      width: min(94%, 580px);
     }
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
+      font-size: clamp(0.95rem, 3.8vw, 1.25rem);
       font-weight: 900;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -140,14 +141,14 @@
 
     .cross-marks {
       position: absolute;
-      right: -10px;
+      right: -8px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       color: var(--accent-teal);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
       text-shadow: 1.5px 1.5px 0 var(--border-dark);
     }
@@ -156,19 +157,19 @@
       display: flex;
       justify-content: center;
       gap: 6px;
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .strip-notch {
-      width: 14px;
-      height: 7px;
+      width: 13px;
+      height: 6px;
       background: var(--burgundy);
       border: 1.5px solid var(--border-dark);
       border-top: none;
       border-radius: 0 0 2px 2px;
     }
 
-    /* BAHAGIAN TENGAH: DIPERLUASKAN SEPENUHNYA */
+    /* 2. BAHAGIAN TENGAH: MENGISI PENUH KETINGGIAN SKRIN */
     .middle-split-section {
       position: relative;
       flex: 1 1 0;
@@ -178,68 +179,73 @@
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 14px 0 18px;
+      padding: 10px 14px 0 16px;
       z-index: 3;
       overflow: visible;
     }
 
-    /* Kolum Teks: Lebih Besar, Padat & Jelas */
+    /* Kad Teks Retro: Mengisi Ruang Kiri Atas ke Bawah */
     .text-column-left {
-      flex: 1.2;
-      padding-bottom: clamp(18px, 4vh, 36px);
-      padding-right: 6px;
+      flex: 1.15;
       z-index: 5;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      gap: clamp(10px, 2vh, 18px);
-      max-width: 520px;
+      justify-content: center;
+      align-self: center;
+      gap: 12px;
+      max-width: 480px;
+      padding: clamp(12px, 2.2vh, 18px);
+      background: rgba(255, 255, 255, 0.45);
+      border: 3px solid var(--border-dark);
+      border-radius: 18px;
+      box-shadow: 5px 5px 0 var(--border-dark);
+      backdrop-filter: blur(2px);
+      margin-bottom: clamp(10px, 2vh, 20px);
     }
 
     .badge-kualalumpur {
       align-self: flex-start;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background: #ffffff;
-      color: var(--burgundy-deep);
-      border: 3px solid var(--border-dark);
-      border-radius: 30px;
-      padding: 6px 14px;
-      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+      color: var(--burgundy);
+      border: 2.5px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: clamp(0.72rem, 2.2vw, 0.85rem);
       font-weight: 900;
       letter-spacing: 0.6px;
-      box-shadow: 3.5px 3.5px 0 var(--border-dark);
+      box-shadow: 2.5px 2.5px 0 var(--border-dark);
       text-transform: uppercase;
     }
 
     .sub-bio {
-      font-size: clamp(1.05rem, 3.6vw, 1.45rem);
+      font-size: clamp(0.92rem, 2.9vw, 1.18rem);
       font-weight: 800;
-      color: var(--burgundy-deep);
-      line-height: 1.38;
+      color: #3b0d20;
+      line-height: 1.4;
       text-align: left;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
 
     .sub-bio mark {
       background: #ffffff;
       color: var(--burgundy-deep);
       border: 2px solid var(--border-dark);
-      padding: 1px 7px;
-      border-radius: 6px;
+      padding: 1px 6px;
+      border-radius: 5px;
       font-weight: 900;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.12);
       display: inline-block;
       white-space: nowrap;
     }
 
-    /* Kolum Model Kanan: Memenuhi Ketinggian Tengah */
+    /* Kolum Model Kanan: Memanjang Penuh Dari Bawah Ke Atas */
     .model-column-right {
       position: relative;
-      flex: 1.15;
+      flex: 1.1;
       height: 100%;
-      min-height: clamp(340px, 58vh, 620px);
+      min-height: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -249,13 +255,13 @@
 
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(230px, 46vw, 380px);
-      height: clamp(230px, 46vw, 380px);
+      width: clamp(240px, 58vw, 420px);
+      height: clamp(240px, 58vw, 420px);
       background: radial-gradient(circle, #ffe082 0%, #f59e0b 80%);
       border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
-      bottom: 0px;
-      right: clamp(-10px, 0.5vw, 15px);
+      bottom: 2%;
+      right: clamp(-15px, -1vw, 5px);
       z-index: 1;
     }
 
@@ -263,32 +269,30 @@
       position: relative;
       z-index: 3;
       width: 100%;
-      max-width: clamp(270px, 54vw, 480px);
-      height: auto;
-      max-height: clamp(340px, 60vh, 620px);
+      max-width: none;
+      height: clamp(380px, 68vh, 680px);
       object-fit: contain;
       object-position: bottom right;
       mix-blend-mode: multiply;
       filter: contrast(1.15) brightness(1.02) saturate(1.06);
       pointer-events: none;
-      transform-origin: bottom right;
-      margin-bottom: -4px;
+      margin-bottom: -5px;
     }
 
-    /* Buih Percakapan Terapung Dilaraskan ke Kepala Model */
+    /* Buih Percakapan Tepat Di Sisi Kepala Model */
     .speech-bubble {
       position: absolute;
-      top: clamp(10px, 3vh, 35px);
-      right: clamp(10px, 3vw, 35px);
+      top: 6%;
+      right: clamp(10px, 2.5vw, 24px);
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: clamp(6px, 1.2vh, 10px) clamp(12px, 3vw, 18px);
-      font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+      padding: 6px 14px;
+      font-size: clamp(0.75rem, 2.3vw, 0.88rem);
       font-weight: 900;
       text-align: center;
-      box-shadow: 4px 4px 0 var(--border-dark);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark);
       z-index: 6;
       line-height: 1.15;
       transform: rotate(6deg);
@@ -298,8 +302,8 @@
     .speech-bubble::after {
       content: '';
       position: absolute;
-      bottom: 2px;
-      left: 8px;
+      bottom: -6px;
+      left: 14px;
       width: 10px;
       height: 10px;
       background-color: var(--accent-teal);
@@ -309,20 +313,21 @@
 
     @keyframes bubbleFloat {
       0%, 100% { transform: rotate(6deg) translateY(0); }
-      50% { transform: rotate(8deg) translateY(-5px); }
+      50% { transform: rotate(8deg) translateY(-4px); }
     }
 
-    /* BAHAGIAN BAWAH */
+    /* 3. BAHAGIAN BAWAH */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
-      border-radius: 26px 26px 0 0;
-      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 4vw, 36px) clamp(12px, 2vh, 18px);
+      border-radius: 24px 24px 0 0;
+      padding: clamp(12px, 1.8vh, 18px) clamp(16px, 4vw, 36px) clamp(10px, 1.6vh, 16px);
       position: relative;
       z-index: 5;
       box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
     }
 
     .bottom-inner-container {
@@ -346,11 +351,11 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.92rem, 3vw, 1.15rem);
+      font-size: clamp(0.88rem, 2.8vw, 1.1rem);
       font-weight: 900;
       letter-spacing: 1px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(10px, 1.6vh, 16px);
+      margin-bottom: clamp(8px, 1.4vh, 14px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -371,7 +376,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(10px, 1.8vh, 16px);
+      margin-bottom: clamp(8px, 1.4vh, 14px);
       gap: 12px;
       width: 100%;
     }
@@ -382,7 +387,7 @@
       align-items: center;
       text-decoration: none;
       color: var(--white);
-      gap: 6px;
+      gap: 5px;
       background: none;
       border: none;
       cursor: pointer;
@@ -391,20 +396,20 @@
     }
 
     .link-item:hover, .link-item:active {
-      transform: translateY(-4px) scale(1.05);
+      transform: translateY(-3px) scale(1.04);
     }
 
     .btn-circle {
-      width: clamp(52px, 12vw, 68px);
-      height: clamp(52px, 12vw, 68px);
+      width: clamp(48px, 11vw, 64px);
+      height: clamp(48px, 11vw, 64px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(20px, 4.8vw, 26px);
+      font-size: clamp(19px, 4.4vw, 24px);
       color: var(--white);
-      box-shadow: 4px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
     }
 
@@ -419,7 +424,7 @@
     .btn-ejpph {
       background: linear-gradient(145deg, #1f242d 0%, #0c0e12 100%);
       border-color: #ffffff;
-      box-shadow: 4px 4px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark), 0 0 10px rgba(56, 239, 125, 0.28);
     }
     .btn-ejpph i {
       color: #38ef7d;
@@ -427,7 +432,7 @@
     }
 
     .link-label {
-      font-size: clamp(0.72rem, 2.2vw, 0.88rem);
+      font-size: clamp(0.7rem, 2vw, 0.84rem);
       font-weight: 800;
       letter-spacing: 0.4px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -444,20 +449,20 @@
       border: var(--border-thick);
       border-radius: 10px;
       text-align: center;
-      padding: clamp(9px, 1.5vh, 12px) 16px;
+      padding: clamp(8px, 1.3vh, 11px) 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+      font-size: clamp(0.76rem, 2.4vw, 0.9rem);
       letter-spacing: 0.4px;
       text-decoration: none;
-      box-shadow: 4px 4px 0 var(--border-dark);
+      box-shadow: 3.5px 3.5px 0 var(--border-dark);
       transition: all 0.18s ease;
     }
 
     .portal-banner-link:hover {
       background-color: #38bdf8;
       transform: translate(-1px, -2px);
-      box-shadow: 5px 5px 0 var(--border-dark);
+      box-shadow: 4.5px 4.5px 0 var(--border-dark);
     }
 
     .portal-banner-link:active {
@@ -730,16 +735,6 @@
       transition: transform 0.15s ease;
     }
     .cloud-close-corner:hover { transform: scale(1.1); }
-
-    @media (min-width: 768px) {
-      .middle-split-section {
-        padding: 0 32px;
-      }
-      .text-column-left {
-        max-width: 520px;
-        gap: 20px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -778,7 +773,7 @@
     <!-- 2. BAHAGIAN TENGAH -->
     <section class="middle-split-section" aria-label="Pengenalan & Visual">
       
-      <!-- Kolum Kiri: Teks Penuh & Jelas -->
+      <!-- Kolum Kiri: Kad Teks Retro Padat & Kemas -->
       <div class="text-column-left">
         <div class="badge-kualalumpur">
           <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
@@ -788,12 +783,12 @@
           Terima kasih warga kota! Sumbangan <mark>Cukai Taksiran</mark> anda nadi kemakmuran dan keselesaan Kuala Lumpur. Jom selesaikan dengan mudah hari ini!
         </p>
 
-        <svg class="geo-zigzag" width="50" height="20" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
+        <svg class="geo-zigzag" width="46" height="16" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="4.5" aria-hidden="true">
           <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
-      <!-- Kolum Kanan: Model Wanita Diperbesar Penuh Ruang -->
+      <!-- Kolum Kanan: Model Wanita Diperbesar Hingga Ke Atas -->
       <div class="model-column-right">
         <div class="model-backdrop-sun" aria-hidden="true"></div>
 
@@ -958,9 +953,7 @@
 
       function openModal(modal) {
         closeAllModals();
-        if (modal) {
-          modal.classList.add('active');
-        }
+        if (modal) modal.classList.add('active');
       }
 
       function closeAllModals() {
@@ -1000,9 +993,7 @@
       allModals.forEach(modal => {
         if (modal) {
           modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-              closeAllModals();
-            }
+            if (e.target === modal) closeAllModals();
           });
         }
       });
@@ -1014,9 +1005,7 @@
       });
 
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeAllModals();
-        }
+        if (e.key === 'Escape') closeAllModals();
       });
     })();
   </script>
