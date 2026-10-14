@@ -42,12 +42,13 @@
     }
 
     body {
-      background: linear-gradient(180deg, #fbb839 0%, var(--bg-yellow) 45%, var(--bg-yellow-dark) 100%);
+      background: linear-gradient(180deg, #fbb839 0%, var(--bg-yellow) 40%, var(--bg-yellow-dark) 100%);
       font-family: 'Space Grotesk', sans-serif;
       color: var(--border-dark);
       position: relative;
     }
 
+    /* Container Viewport Penuh */
     .app-viewport {
       width: 100vw;
       min-height: 100vh;
@@ -60,12 +61,13 @@
       margin: 0 auto;
     }
 
+    /* Hiasan Memphis Geometrik */
     .memphis-dots-left {
       position: absolute;
       top: 14px;
       left: 14px;
-      width: 56px;
-      height: 56px;
+      width: 54px;
+      height: 54px;
       background-image: radial-gradient(rgba(255, 255, 255, 0.95) 28%, transparent 28%);
       background-size: 11px 11px;
       pointer-events: none;
@@ -74,11 +76,11 @@
 
     .memphis-dots-right {
       position: absolute;
-      top: 22%;
+      top: 18%;
       right: 14px;
       width: 44px;
       height: 75px;
-      background-image: radial-gradient(rgba(111, 38, 71, 0.28) 25%, transparent 25%);
+      background-image: radial-gradient(rgba(111, 38, 71, 0.35) 25%, transparent 25%);
       background-size: 10px 10px;
       pointer-events: none;
       z-index: 1;
@@ -104,15 +106,16 @@
       border-radius: 1px;
     }
 
-    /* 1. BAHAGIAN ATAS */
+    /* 1. BAHAGIAN ATAS (HEADER BANNER) */
     .header-section {
       width: 100%;
-      padding: clamp(10px, 2vh, 20px) 16px 2px;
+      padding: clamp(10px, 1.8vh, 18px) 16px 0;
       position: relative;
-      z-index: 4;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-shrink: 0;
     }
 
     .title-banner {
@@ -120,17 +123,17 @@
       color: var(--white);
       border: var(--border-thick);
       border-radius: 14px;
-      padding: clamp(9px, 1.6vh, 15px) clamp(16px, 4vw, 36px);
-      box-shadow: 5px 5px 0px var(--border-dark);
+      padding: clamp(8px, 1.4vh, 14px) clamp(16px, 4vw, 36px);
+      box-shadow: 4px 4px 0px var(--border-dark);
       position: relative;
-      transform: rotate(-0.4deg);
+      transform: rotate(-0.5deg);
       text-align: center;
       width: min(94%, 620px);
     }
 
     .title-banner h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1rem, 4vw, 1.4rem);
+      font-size: clamp(0.95rem, 4vw, 1.35rem);
       font-weight: 900;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -156,7 +159,7 @@
       display: flex;
       justify-content: center;
       gap: 6px;
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .strip-notch {
@@ -168,27 +171,28 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* 2. BAHAGIAN TENGAH: MODEL DI SEBELAH KIRI */
+    /* 2. BAHAGIAN TENGAH: SUSUNAN MODEL KIRI PENUH & TEKS KANAN */
     .middle-split-section {
       position: relative;
-      flex: 1 1 auto;
+      flex: 1 1 0;
       display: flex;
-      align-items: flex-end;
+      align-items: stretch;
       justify-content: space-between;
       width: 100%;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0 14px 0 0; /* Rapatkan ke tepi kiri skrin */
+      padding: 0;
       z-index: 3;
       overflow: visible;
+      min-height: 0;
     }
 
-    /* Kolum Model Kiri (Diperbesarkan & Memenuhi Ruang Kiri) */
+    /* Kolum Kiri: Model Memenuhi Ketinggian Penuh (Full Fill Height) */
     .model-column-left {
       position: relative;
       flex: 1.25;
+      width: 55%;
       height: 100%;
-      min-height: clamp(340px, 52vh, 580px);
       display: flex;
       justify-content: flex-start;
       align-items: flex-end;
@@ -196,90 +200,118 @@
       overflow: visible;
     }
 
+    /* Bulatan Sunburst Latar Belakang Model */
     .model-backdrop-sun {
       position: absolute;
-      width: clamp(230px, 48vw, 420px);
-      height: clamp(230px, 48vw, 420px);
-      background: radial-gradient(circle, #ffe082 0%, #f59e0b 80%);
+      width: clamp(260px, 55vw, 460px);
+      height: clamp(260px, 55vw, 460px);
+      background: radial-gradient(circle, #ffe699 0%, #f59e0b 80%);
       border: 4px dashed rgba(255, 255, 255, 0.95);
       border-radius: 50%;
       bottom: 0px;
       left: clamp(-30px, -2vw, -10px);
       z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Imej Model Wanita: Skala Besar, Mengisi Penuh dari Atas ke Garisan Footer */
+    .model-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      z-index: 3;
     }
 
     .model-cutout-img {
-      position: relative;
-      z-index: 3;
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      max-width: clamp(290px, 58vw, 460px);
-      height: auto;
-      max-height: clamp(360px, 54vh, 600px);
+      height: 100%;
+      max-height: 100%;
       object-fit: contain;
       object-position: bottom left;
       mix-blend-mode: multiply;
       filter: contrast(1.12) brightness(1.02) saturate(1.05);
       pointer-events: none;
       transform-origin: bottom left;
-      margin-bottom: -4px;
-      margin-left: -10px;
+      /* Skala sedikit lebih besar untuk menghilangkan ruang kosong */
+      transform: scale(1.08);
+      margin-left: -5px;
     }
 
-    /* Buih Percakapan */
-    .speech-bubble {
+    /* Ilustrasi Vektor SVG (Sebagai Fallback jika AC.png tiada) */
+    .model-svg-fallback {
       position: absolute;
-      top: clamp(10px, 4vh, 45px);
-      left: clamp(120px, 28vw, 220px);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      z-index: 3;
+      object-fit: contain;
+      object-position: bottom left;
+      display: none; /* Muncul automatik jika fail imej gagal */
+      pointer-events: none;
+    }
+
+    /* Kolum Kanan: Mengandungi Maklumat, Teks & Buih Percakapan */
+    .text-column-right {
+      position: relative;
+      flex: 1;
+      width: 45%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: clamp(10px, 2vh, 20px) 16px clamp(18px, 3.5vh, 28px) 8px;
+      z-index: 5;
+      gap: clamp(8px, 1.8vh, 16px);
+      max-width: 460px;
+    }
+
+    /* Buih Percakapan Memphis Retro */
+    .speech-bubble {
+      position: relative;
+      align-self: flex-start;
       background-color: var(--accent-teal);
       color: #083344;
       border: var(--border-thick);
       border-radius: 50px;
-      padding: clamp(6px, 1.2vh, 10px) clamp(12px, 3vw, 18px);
-      font-size: clamp(0.76rem, 2.4vw, 0.92rem);
+      padding: clamp(6px, 1.2vh, 10px) clamp(12px, 2.5vw, 18px);
+      font-size: clamp(0.74rem, 2.2vw, 0.9rem);
       font-weight: 900;
       text-align: center;
       box-shadow: 4px 4px 0 var(--border-dark);
-      z-index: 6;
-      line-height: 1.15;
-      transform: rotate(-6deg);
+      line-height: 1.2;
+      transform: rotate(-3deg);
       animation: bubbleFloat 3s infinite ease-in-out;
+      margin-bottom: clamp(6px, 1vh, 12px);
       white-space: nowrap;
     }
 
     .speech-bubble::after {
       content: '';
       position: absolute;
-      bottom: 2px;
-      left: 12px;
-      width: 10px;
-      height: 10px;
+      bottom: -8px;
+      left: 20px;
+      width: 12px;
+      height: 12px;
       background-color: var(--accent-teal);
       border: 2px solid var(--border-dark);
       border-radius: 50%;
     }
 
     @keyframes bubbleFloat {
-      0%, 100% { transform: rotate(-6deg) translateY(0); }
-      50% { transform: rotate(-4deg) translateY(-5px); }
-    }
-
-    /* Kolum Teks Kanan */
-    .text-column-right {
-      flex: 1.05;
-      padding-bottom: clamp(16px, 3.8vh, 32px);
-      padding-left: 8px;
-      padding-right: 8px;
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      gap: clamp(10px, 1.8vh, 16px);
-      max-width: 480px;
+      0%, 100% { transform: rotate(-3deg) translateY(0); }
+      50% { transform: rotate(-1deg) translateY(-4px); }
     }
 
     .badge-kualalumpur {
-      align-self: flex-start;
       display: inline-flex;
       align-items: center;
       gap: 7px;
@@ -288,20 +320,21 @@
       border: 3px solid var(--border-dark);
       border-radius: 30px;
       padding: 5px 12px;
-      font-size: clamp(0.72rem, 2.3vw, 0.88rem);
+      font-size: clamp(0.72rem, 2.2vw, 0.88rem);
       font-weight: 900;
       letter-spacing: 0.5px;
       box-shadow: 3px 3px 0 var(--border-dark);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .sub-bio {
-      font-size: clamp(0.95rem, 3.2vw, 1.3rem);
+      font-size: clamp(0.88rem, 2.8vw, 1.25rem);
       font-weight: 800;
       color: var(--burgundy-deep);
       line-height: 1.35;
       text-align: left;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
     }
 
     .sub-bio mark {
@@ -316,17 +349,24 @@
       white-space: nowrap;
     }
 
-    /* 3. BAHAGIAN BAWAH */
+    .geo-zigzag {
+      margin-top: 2px;
+      width: clamp(45px, 8vw, 60px);
+      height: auto;
+    }
+
+    /* 3. BAHAGIAN BAWAH (PANEL FOOTER TETAP) */
     .bottom-section {
       width: 100%;
       background-color: var(--burgundy);
       color: var(--white);
       border-top: var(--border-thick);
       border-radius: 24px 24px 0 0;
-      padding: clamp(12px, 2vh, 18px) clamp(16px, 4vw, 36px) clamp(12px, 2vh, 18px);
+      padding: clamp(10px, 1.8vh, 16px) clamp(16px, 4vw, 36px) clamp(10px, 1.8vh, 16px);
       position: relative;
-      z-index: 5;
+      z-index: 6;
       box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
     }
 
     .bottom-inner-container {
@@ -350,11 +390,11 @@
     .section-title {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
-      font-size: clamp(0.88rem, 2.8vw, 1.1rem);
+      font-size: clamp(0.85rem, 2.6vw, 1.05rem);
       font-weight: 900;
       letter-spacing: 1px;
       color: var(--retro-yellow);
-      margin-bottom: clamp(8px, 1.5vh, 14px);
+      margin-bottom: clamp(6px, 1.2vh, 12px);
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -375,7 +415,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-bottom: clamp(8px, 1.5vh, 14px);
+      margin-bottom: clamp(6px, 1.4vh, 14px);
       gap: 12px;
       width: 100%;
     }
@@ -399,14 +439,14 @@
     }
 
     .btn-circle {
-      width: clamp(50px, 12vw, 66px);
-      height: clamp(50px, 12vw, 66px);
+      width: clamp(48px, 11vw, 64px);
+      height: clamp(48px, 11vw, 64px);
       border-radius: 50%;
       border: var(--border-thick);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: clamp(19px, 4.6vw, 25px);
+      font-size: clamp(18px, 4.2vw, 24px);
       color: var(--white);
       box-shadow: 4px 4px 0 var(--border-dark), inset 0 2px 3px rgba(255, 255, 255, 0.3);
       transition: all 0.2s ease;
@@ -431,7 +471,7 @@
     }
 
     .link-label {
-      font-size: clamp(0.7rem, 2.1vw, 0.85rem);
+      font-size: clamp(0.68rem, 2vw, 0.82rem);
       font-weight: 800;
       letter-spacing: 0.4px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
@@ -448,10 +488,10 @@
       border: var(--border-thick);
       border-radius: 10px;
       text-align: center;
-      padding: clamp(8px, 1.4vh, 12px) 16px;
+      padding: clamp(7px, 1.2vh, 11px) 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(0.76rem, 2.4vw, 0.9rem);
+      font-size: clamp(0.74rem, 2.2vw, 0.88rem);
       letter-spacing: 0.4px;
       text-decoration: none;
       box-shadow: 4px 4px 0 var(--border-dark);
@@ -469,12 +509,12 @@
       box-shadow: 2px 2px 0 var(--border-dark);
     }
 
-    /* MODAL POP-UP */
+    /* 4. MODAL POP-UP (AWAN KOMIK RETRO) */
     .cloud-modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(30, 8, 17, 0.78);
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(4px);
       z-index: 999;
       display: flex;
       justify-content: center;
@@ -735,13 +775,21 @@
     }
     .cloud-close-corner:hover { transform: scale(1.1); }
 
+    /* Penyesuaian Skrin Sederhana & Lebar (Tablet/Desktop) */
     @media (min-width: 768px) {
       .middle-split-section {
         padding: 0 24px;
       }
+      .model-column-left {
+        width: 50%;
+      }
       .text-column-right {
+        width: 50%;
         max-width: 460px;
         gap: 18px;
+      }
+      .model-cutout-img {
+        transform: scale(1.04);
       }
     }
   </style>
@@ -750,6 +798,7 @@
 
   <main class="app-viewport" role="main">
     
+    <!-- Corak Memphis -->
     <div class="memphis-dots-left" aria-hidden="true"></div>
     <div class="memphis-dots-right" aria-hidden="true"></div>
     <div class="memphis-chevrons" aria-hidden="true">
@@ -758,7 +807,7 @@
       <div class="chevron"></div>
     </div>
 
-    <!-- 1. BAHAGIAN ATAS -->
+    <!-- 1. BAHAGIAN ATAS: BANNER KOMIK -->
     <header class="header-section">
       <div class="title-banner">
         <h1>CUKAI TAKSIRAN - PAUTAN PANTAS</h1>
@@ -779,49 +828,98 @@
       </div>
     </header>
 
-    <!-- 2. BAHAGIAN TENGAH -->
-    <section class="middle-split-section" aria-label="Pengenalan & Visual">
+    <!-- 2. BAHAGIAN TENGAH: MODEL KIRI BERDIRI TEGAK & MEMENUHI RUANG -->
+    <section class="middle-split-section" aria-label="Visual Model & Maklumat">
       
-      <!-- Kolum Kiri: Model Wanita Memenuhi Ruang Kiri -->
+      <!-- Kolum Kiri: Model Wanita Memenuhi Ketinggian Penuh hingga Footer -->
       <div class="model-column-left">
+        <!-- Bulatan Latar Geometrik -->
         <div class="model-backdrop-sun" aria-hidden="true"></div>
 
-        <img 
-          src="AC.png" 
-          alt="Model Wanita DBKL" 
-          class="model-cutout-img"
-          onerror="this.onerror=null; this.src='WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg';"
-        />
+        <div class="model-wrapper">
+          <!-- Imej Model Tempatan -->
+          <img 
+            id="modelImg"
+            src="AC.png" 
+            alt="Model Wanita DBKL" 
+            class="model-cutout-img"
+            onerror="handleImageError(this);"
+          />
 
-        <div class="speech-bubble" aria-label="Notis Interaktif">
-          Klik Pautan<br>Di Bawah!
+          <!-- Fallback Vektor SVG sekiranya imej AC.png tidak dijumpai dalam persekitaran tempatan -->
+          <svg id="modelSvg" class="model-svg-fallback" viewBox="0 0 320 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Bayang Badan & Kotak -->
+            <path d="M70 480 L90 280 L160 270 L240 285 L260 480 Z" fill="#4d5345" />
+            <path d="M125 480 L125 350 L195 350 L195 480 Z" fill="#3b4034" />
+            <!-- Tali Pinggang & Seluar -->
+            <rect x="110" y="340" width="100" height="24" rx="4" fill="#32362c" />
+            <rect x="145" y="336" width="30" height="32" rx="4" fill="#d4af37" stroke="#1a1a1a" stroke-width="3" />
+            <!-- Baju Lapisan Dalam Gelap -->
+            <path d="M125 210 L195 210 L205 340 L115 340 Z" fill="#0f262b" />
+            <!-- Blazer Hijau Zaitun (Olive Suit) -->
+            <path d="M80 230 L135 340 L110 345 L65 245 Z" fill="#585f4f" stroke="#1a1a1a" stroke-width="3" />
+            <path d="M240 230 L185 340 L210 345 L255 245 Z" fill="#585f4f" stroke="#1a1a1a" stroke-width="3" />
+            <path d="M100 215 L145 310 L160 210 Z" fill="#6a7260" stroke="#1a1a1a" stroke-width="2" />
+            <path d="M220 215 L175 310 L160 210 Z" fill="#6a7260" stroke="#1a1a1a" stroke-width="2" />
+            <!-- Tangan Kiri di Poket -->
+            <path d="M245 250 L270 330 L250 370 L210 360" stroke="#1a1a1a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M245 250 L270 330 L250 370 L210 360" stroke="#585f4f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Tangan Kanan -->
+            <path d="M75 250 L55 330 L80 370 L115 360" stroke="#1a1a1a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M75 250 L55 330 L80 370 L115 360" stroke="#585f4f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Leher Hijab & Leher Turtleneck -->
+            <path d="M130 180 Q160 215 190 180 L195 220 L125 220 Z" fill="#0f262b" stroke="#1a1a1a" stroke-width="2" />
+            <!-- Wajah Berseri -->
+            <ellipse cx="160" cy="155" rx="34" ry="42" fill="#ffd0b0" stroke="#1a1a1a" stroke-width="2" />
+            <path d="M145 150 Q150 146 155 150" stroke="#331b11" stroke-width="3" stroke-linecap="round" />
+            <path d="M165 150 Q170 146 175 150" stroke="#331b11" stroke-width="3" stroke-linecap="round" />
+            <path d="M152 172 Q160 178 168 172" stroke="#be123c" stroke-width="3" stroke-linecap="round" />
+            <!-- Hijab Hitam Moden & Kemas -->
+            <path d="M125 155 C125 105 140 85 160 85 C180 85 195 105 195 155 C195 180 180 195 160 195 C140 195 125 180 125 155 Z" fill="#132729" stroke="#1a1a1a" stroke-width="3" />
+            <path d="M136 128 C144 116 176 116 184 128 C184 165 180 180 160 180 C140 180 136 165 136 128 Z" fill="#ffd0b0" />
+            <!-- Mata & Cermin Senyum -->
+            <circle cx="148" cy="146" r="3" fill="#1a1a1a" />
+            <circle cx="172" cy="146" r="3" fill="#1a1a1a" />
+            <path d="M152 165 Q160 172 168 165" stroke="#be185d" stroke-width="3" stroke-linecap="round" />
+          </svg>
         </div>
       </div>
 
-      <!-- Kolum Kanan: Teks & Maklumat -->
+      <!-- Kolum Kanan: Maklumat, Lencana, Teks Penerangan & Buih Ucapan -->
       <div class="text-column-right">
+        
+        <!-- Buih Percakapan Interaktif -->
+        <div class="speech-bubble" aria-label="Notis Interaktif">
+          Klik Pautan Di Bawah! 👇
+        </div>
+
+        <!-- Lencana Wilayah -->
         <div class="badge-kualalumpur">
           <i class="fa-solid fa-heart" style="color: #e11d48;"></i> Untuk Warga KL
         </div>
 
+        <!-- Teks Penerangan dengan Markah Terang -->
         <p class="sub-bio">
           Terima kasih warga kota! Sumbangan <mark>Cukai Taksiran</mark> anda nadi kemakmuran dan keselesaan Kuala Lumpur. Jom selesaikan dengan mudah hari ini!
         </p>
 
-        <svg class="geo-zigzag" width="50" height="20" viewBox="0 0 50 20" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
-          <path d="M 2 15 L 12 5 L 22 15 L 32 5 L 42 15" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Garisan Corak Zigzag Memphis -->
+        <svg class="geo-zigzag" viewBox="0 0 50 18" fill="none" stroke="#6f2647" stroke-width="5" aria-hidden="true">
+          <path d="M 2 13 L 12 4 L 22 13 L 32 4 L 42 13" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
+
       </div>
 
     </section>
 
-    <!-- 3. BAHAGIAN BAWAH -->
+    <!-- 3. BAHAGIAN BAWAH: PANEL FOOTER 'LINK PANTAS DBKL' -->
     <footer class="bottom-section">
       <div class="bottom-inner-container">
         <div class="bottom-dots" aria-hidden="true"></div>
 
         <h2 class="section-title">LINK PANTAS DBKL</h2>
 
+        <!-- Tiga Butang Pantas Bulat -->
         <nav class="action-buttons-grid" aria-label="Pautan Pantas DBKL">
           
           <button type="button" id="btn-dbklbayar-trigger" class="link-item" aria-haspopup="dialog" aria-label="DBKLBayar - Pembayaran Cukai Taksiran">
@@ -847,6 +945,7 @@
 
         </nav>
 
+        <!-- Pautan ke Portal Rasmi DBKL -->
         <a href="https://www.dbkl.gov.my" target="_blank" rel="noopener noreferrer" class="portal-banner-link">
           <i class="fa-solid fa-globe"></i>
           <span>Portal Rasmi: dbkl.gov.my</span>
@@ -854,7 +953,9 @@
       </div>
     </footer>
 
-    <!-- Modals -->
+    <!-- 4. MODAL AWAN KOMIK RETRO -->
+
+    <!-- Modal 1: DBKLBayar -->
     <div id="cloudModalDBKL" class="cloud-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cloudTitleDBKL">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan">✕</button>
@@ -882,6 +983,7 @@
       </div>
     </div>
 
+    <!-- Modal 2: Pay@KL -->
     <div id="cloudModalPayKL" class="cloud-modal-overlay cloud-paykl" role="dialog" aria-modal="true" aria-labelledby="cloudTitlePayKL">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan Pay@KL">✕</button>
@@ -920,6 +1022,7 @@
       </div>
     </div>
 
+    <!-- Modal 3: eJPPH -->
     <div id="cloudModalEJPPH" class="cloud-modal-overlay cloud-ejpph" role="dialog" aria-modal="true" aria-labelledby="cloudTitleEJPPH">
       <div class="comic-cloud">
         <button class="cloud-close-corner close-trigger" aria-label="Tutup Paparan Awan eJPPH">✕</button>
@@ -951,6 +1054,25 @@
   </main>
 
   <script>
+    // Pengendali Fallback Imej
+    function handleImageError(imgElement) {
+      imgElement.onerror = null;
+      // Cuba muatkan fail kedua jika ada
+      const fallbackSrc = 'WhatsApp Image 2026-10-14 at 7.03.11 PM.jpeg';
+      if (!imgElement.dataset.triedFallback) {
+        imgElement.dataset.triedFallback = 'true';
+        imgElement.src = fallbackSrc;
+      } else {
+        // Jika kedua-dua fail tiada dalam folder pelayan, paparkan ilustrasi SVG berkualiti tinggi
+        imgElement.style.display = 'none';
+        const svgFallback = document.getElementById('modelSvg');
+        if (svgFallback) {
+          svgFallback.style.display = 'block';
+        }
+      }
+    }
+
+    // Pengurusan Modal Awan Komik
     (function() {
       const dbklTrigger = document.getElementById('btn-dbklbayar-trigger');
       const payklTrigger = document.getElementById('btn-paykl-trigger');
